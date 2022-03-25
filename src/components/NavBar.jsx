@@ -1,5 +1,4 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
