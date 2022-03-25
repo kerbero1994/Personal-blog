@@ -3,8 +3,7 @@ import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import CardBlog from "../components/CardBlog"
-import Grid from "@mui/material/Grid"
+import BlogSection from "../components/Blogs/Blog"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -26,18 +25,7 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
-      <ol style={{ listStyle: `none` }}>
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {posts.map(post => {
-            return <CardBlog info={post} />
-          })}
-        </Grid>
-      </ol>
+      <BlogSection posts={posts} />
     </Layout>
   )
 }
