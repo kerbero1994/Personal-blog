@@ -1,15 +1,18 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Typography } from "@mui/material"
-import Menu from "./Menu"
+import { Grid } from "@mui/material"
+import NavBar from "../NavBar"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
     padding: "0",
     margin: "0",
-    width: "100%",
+    width: "80%",
     height: "60vh",
-    backgroundImage:
-      "url(https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Berchtesgaden_Desktop_1920x1080.jpg)",
+    maxWidth: "20vw",
+    backgroundSize: "cover",
+    backgroundPosition: "bottom center",
+    borderRadius: "0 0 60% 60%/0 0 15% 15%",
+    content: "",
   },
   PrincipalText: {
     color: "white",
@@ -18,35 +21,34 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     textAlign: "center",
     fontSize: "60px",
   },
+  title: {
+    maxWidth: "100%",
+    maxHeight: "200px",
+  },
 }))
 
-export const HeroArea = React.memo(function HeroArea({ posts }) {
+export const HeroArea = React.memo(function HeroArea({ Background }) {
+  console.log("Back", Background)
   const styles = useStyles()
 
   return (
     <Grid
+      className={styles.BGSection}
       container
       direction="row"
       justifyContent="center"
       alignItems="center"
-      className={styles.BGSection}
       xs={12}
+      style={{ backgroundImage: `url(${Background})` }}
     >
-      <Grid item xs={6}>
-        <h1 className={styles.PrincipalText}>FrontEnd Developer</h1>
-        <Typography
-          align="center"
-          gutterBottom
-          variant="h4"
-          className={styles.PrincipalText}
-        >
-          "I have passion for the details, I strive to make the design of every
-          user experiences como to life.""
-        </Typography>
-      </Grid>
-      <Grid item xs={6}>
-        <Menu />
-      </Grid>
+      <NavBar />
+      <Grid
+        item
+        xs={4}
+        justifyContent="center"
+        alignItems="center"
+        container
+      ></Grid>
     </Grid>
   )
 })

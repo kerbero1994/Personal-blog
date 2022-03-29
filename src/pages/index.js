@@ -9,6 +9,7 @@ import Hero from "../components/Hero/HeroArea"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  console.log(data)
 
   if (posts.length === 0) {
     return (
@@ -25,7 +26,7 @@ const BlogIndex = ({ data, location }) => {
       <Helmet>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
-      <Hero />
+      <Hero Background={data.Background.publicURL} />
       <BlogSection posts={posts} />
     </Layout>
   )
@@ -39,6 +40,15 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
+    }
+    Background: file(relativePath: { eq: "blob.svg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+      extension
+      publicURL
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {

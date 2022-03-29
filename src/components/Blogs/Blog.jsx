@@ -11,7 +11,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     // "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
     //backgroundBlendMode: "multiply,multiply",
     //backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
-    backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+    //backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
     //backgroundImage: "linear-gradient(120deg, #f6d365 0%, #fda085 80%)",
   },
 }))
