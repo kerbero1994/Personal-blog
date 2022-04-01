@@ -27,7 +27,9 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero Background={data.Background.publicURL} />
-      <BlogSection posts={posts} />
+      <section id="About me">
+        <BlogSection posts={posts} />
+      </section>
     </Layout>
   )
 }
@@ -41,7 +43,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    Background: file(relativePath: { eq: "blob.svg" }) {
+    Background: file(relativePath: { eq: "purple.svg" }) {
       childImageSharp {
         fluid(quality: 100, maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp

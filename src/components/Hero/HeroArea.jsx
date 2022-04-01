@@ -10,7 +10,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     height: "60vh",
     maxWidth: "20vw",
     backgroundSize: "cover",
-    backgroundPosition: "bottom center",
+    backgroundPosition: "center",
     borderRadius: "0 0 60% 60%/0 0 15% 15%",
     content: "",
   },
