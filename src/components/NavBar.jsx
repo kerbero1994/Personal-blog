@@ -18,6 +18,7 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch"
 import EmailIcon from "@mui/icons-material/Email"
 import ImportContactsIcon from "@mui/icons-material/ImportContacts"
 import WorkIcon from "@mui/icons-material/Work"
+import Tooltip from "@mui/material/Tooltip"
 import "@fontsource/ibm-plex-serif"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
@@ -36,6 +37,10 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     textAlign: "center",
   },
   Menu: { flexDirection: "row-reverse" },
+  Logo: {
+    maxWidth: "100%",
+    maxHeight: "65px",
+  },
 }))
 
 function HideOnScroll(props) {
@@ -55,6 +60,7 @@ function HideOnScroll(props) {
 }
 
 export default function HideAppBar(props) {
+  console.log("En el nav", props)
   const pages = [
     { name: "About me", icon: <PersonSearchIcon /> },
     { name: "Contact", icon: <EmailIcon /> },
@@ -83,7 +89,7 @@ export default function HideAppBar(props) {
                 sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
                 className={styles.Title}
               >
-                Eduglez94
+                <img src={props.Logo} alt="Logo" className={styles.Logo}></img>{" "}
               </Typography>
 
               <Box
@@ -133,7 +139,7 @@ export default function HideAppBar(props) {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
               >
-                LOGO
+                <img src={props.Logo} alt="Logo" className={styles.Logo}></img>{" "}
               </Typography>
               <Box
                 sx={{
@@ -144,15 +150,16 @@ export default function HideAppBar(props) {
               >
                 {pages.map(page => {
                   return (
-                    <Button
-                      key={page.name}
-                      onClick={handleCloseNavMenu}
-                      sx={{ my: 2, color: "white" }}
-                      endIcon={page.icon}
-                      href={`#${page.name}`}
-                    >
-                      {page.name}
-                    </Button>
+                    <Tooltip title={page.name} placement="bottom">
+                      <Button
+                        key={page.name}
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: "white" }}
+                        href={`#${page.name}`}
+                      >
+                        {page.icon}
+                      </Button>
+                    </Tooltip>
                   )
                 })}
               </Box>
