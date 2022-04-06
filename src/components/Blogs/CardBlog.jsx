@@ -75,7 +75,7 @@ export const BlogCardDemo = React.memo(function BlogCard({ info }) {
   const shadowStyles = useOverShadowStyles()
   console.log(info)
   return (
-    <Grid item xs={3}>
+    <Grid item xs={4} sx={{ marginBottom: "16px" }}>
       <Card className={cx(styles.root, shadowStyles.root)}>
         <CardMedia
           className={styles.media}
