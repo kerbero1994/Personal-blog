@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useRef } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@mui/material/Grid"
 import CardBlog from "./CardBlog"
 import { styled } from "@mui/material/styles"
 import Button from "@mui/material/Button"
+import Collapse from "@mui/material/Collapse"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
@@ -20,6 +21,14 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   ButtonDiv: {
     display: "flex",
     justifyContent: "center",
+    width: "100%",
+  },
+  buttonFadeOut: {
+    visibility: "hidden",
+    opacity: "0",
+    transition: "visibility 0s 2s, opacity 2s linear",
+  },
+  Full: {
     width: "100%",
   },
 }))
@@ -49,15 +58,16 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 export const BlogsArea = React.memo(function BlogsArea({ posts }) {
   const styles = useStyles()
-  const [BlogPost, setBlogPost] = useState([])
-  useEffect(() => {
-    if (posts && posts.length > 2) {
-      setBlogPost(posts.slice(0, 3))
-    } else {
-      setBlogPost(posts)
-    }
-  }, [])
+  const Init = posts.slice(0, 3)
+  const Rest = posts.slice(3, posts.length)
+  console.log(posts.slice(2, -1))
+  const [Fade, setFade] = useState(false)
+  const [CollapseState, setCollapseState] = useState(false)
+  const containerRef = useRef(null)
 
+  const Asing = () => {
+    setCollapseState(true)
+  }
   return (
     <Grid
       container
@@ -65,23 +75,31 @@ export const BlogsArea = React.memo(function BlogsArea({ posts }) {
       justifyContent="start"
       alignItems="center"
       className={styles.BGSection}
+      ref={containerRef}
     >
-      {BlogPost.map(post => {
+      {Init.map(post => {
         return <CardBlog info={post} />
       })}
-      {BlogPost.length < 4 && (
-        <div className={styles.ButtonDiv}>
-          <ColorButton
-            variant="contained"
-            size="large"
-            onClick={() => {
-              setBlogPost(posts)
-            }}
-          >
-            Show More
-          </ColorButton>
-        </div>
-      )}
+
+      <Collapse in={CollapseState} className={styles.Full}>
+        {Rest.map(post => {
+          return <CardBlog info={post} />
+        })}
+      </Collapse>
+
+      <div className={styles.ButtonDiv}>
+        <ColorButton
+          variant="contained"
+          size="large"
+          onClick={() => {
+            setFade(true)
+            setTimeout(Asing, 400)
+          }}
+          className={Fade ? styles.buttonFadeOut : styles.button}
+        >
+          Show More
+        </ColorButton>
+      </div>
     </Grid>
   )
 })

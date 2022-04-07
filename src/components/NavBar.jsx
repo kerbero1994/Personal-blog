@@ -60,7 +60,6 @@ function HideOnScroll(props) {
 }
 
 export default function HideAppBar(props) {
-  console.log("En el nav", props)
   const pages = [
     { name: "About me", icon: <PersonSearchIcon /> },
     { name: "Contact", icon: <EmailIcon /> },

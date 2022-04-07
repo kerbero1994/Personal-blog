@@ -68,14 +68,13 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
 }))
 
-export const BlogCardDemo = React.memo(function BlogCard({ info }) {
+export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
   const styles = useStyles()
   const { button: buttonStyles, ...contentStyles } =
     useBlogTextInfoContentStyles()
   const shadowStyles = useOverShadowStyles()
-  console.log(info)
   return (
-    <Grid item xs={4} sx={{ marginBottom: "16px" }}>
+    <Grid item xs={4} sx={{ marginBottom: "16px" }} ref={ref}>
       <Card className={cx(styles.root, shadowStyles.root)}>
         <CardMedia
           className={styles.media}

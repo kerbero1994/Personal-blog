@@ -9,7 +9,7 @@ import Hero from "../components/Hero/HeroArea"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  console.log(data)
+  //console.log(data)
 
   if (posts.length === 0) {
     return (
@@ -27,7 +27,7 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero Background={data.Background.publicURL} Logo={data.Logo.publicURL} />
-      <section id="Blog">
+      <section id="Blog" style={{ transition: "all 2.5s 0.5s ease-in-out" }}>
         <BlogSection posts={posts} />
       </section>
     </Layout>

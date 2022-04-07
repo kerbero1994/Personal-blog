@@ -57,7 +57,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }))
 
 export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
-  console.log("Back", Background)
+  //console.log("Back", Background)
   const styles = useStyles()
 
   return (
