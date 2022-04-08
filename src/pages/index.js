@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BlogSection from "../components/Blogs/Blog"
 import Hero from "../components/Hero/HeroArea"
+import Contact from "../components/Contact/Compose"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -27,8 +28,11 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero Background={data.Background.publicURL} Logo={data.Logo.publicURL} />
-      <section id="Blog" style={{ transition: "all 2.5s 0.5s ease-in-out" }}>
+      <section id="Blog">
         <BlogSection posts={posts} />
+      </section>
+      <section id="Contact">
+        <Contact />
       </section>
     </Layout>
   )
