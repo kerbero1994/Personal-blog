@@ -1,17 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Personal Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Eduardo Gonzalez Zavala`,
+      summary: `who lives and works in Mexico building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A starter blog `,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `eduglezzvl`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {},
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
