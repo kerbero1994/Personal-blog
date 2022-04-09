@@ -9,9 +9,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
     padding: "0",
     margin: "0",
-    width: "80%",
+    width: "100%",
     height: "70vh",
-    maxWidth: "20vw",
     backgroundSize: "cover",
     backgroundPosition: "center",
     borderRadius: "0 0 60% 60%/0 0 15% 15%",
