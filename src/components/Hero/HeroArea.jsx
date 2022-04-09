@@ -41,6 +41,17 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     textAlign: "center",
     margin: "0",
   },
+  CTA: {
+    color: theme.palette.getContrastText(orange[500]),
+    backgroundColor: orange[500],
+    "&:hover": {
+      backgroundColor: orange[700],
+    },
+    width: "35%",
+    borderRadius: "35px",
+    marginTop: "16px",
+    display: "block",
+  },
 }))
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -85,7 +96,7 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
           Specializing in custom theme development. If you're a business seeking
           a web presence or are looking to hire, contact me here.
         </h4>
-        <ColorButton variant="contained" size="large">
+        <ColorButton variant="contained" size="large" className={styles.CTA}>
           Get Started
         </ColorButton>
       </Grid>

@@ -31,6 +31,22 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   Full: {
     width: "100%",
   },
+  button: {
+    color: "white",
+    backgroundImage:
+      "linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)",
+    "&:hover": {
+      backgroundPosition: "right center",
+      color: "#fff",
+      textDecoration: "none",
+    },
+    width: "35%",
+    borderRadius: "35px",
+    bottom: "-55px",
+    display: "block",
+    transition: "0.5s",
+    backgroundSize: "200% auto",
+  },
 }))
 const ColorButton = styled(Button)(({ theme }) => ({
   color: "white",
