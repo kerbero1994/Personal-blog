@@ -61,11 +61,11 @@ function HideOnScroll(props) {
 
 export default function HideAppBar(props) {
   const pages = [
-    { name: "About me", icon: <PersonSearchIcon /> },
-    { name: "Contact", icon: <EmailIcon /> },
-    { name: "Resources", icon: <ImportContactsIcon /> },
-    { name: "Demos", icon: <WorkIcon /> },
-    { name: "Blog", icon: <BookIcon /> },
+    { name: "About me", icon: <PersonSearchIcon sx={{ color: "white" }} /> },
+    { name: "Contact", icon: <EmailIcon sx={{ color: "white" }} /> },
+    { name: "Resources", icon: <ImportContactsIcon sx={{ color: "white" }} /> },
+    { name: "Demos", icon: <WorkIcon sx={{ color: "white" }} /> },
+    { name: "Blog", icon: <BookIcon sx={{ color: "white" }} /> },
   ]
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const handleOpenNavMenu = event => {
@@ -79,9 +79,13 @@ export default function HideAppBar(props) {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar color="transparent" className={styles.BGSection}>
-          <Container maxWidth="xl">
-            <Toolbar disableGutters>
+        <AppBar
+          color="transparent"
+          className={styles.BGSection}
+          sx={{ backgroundColor: "transparent" }}
+        >
+          <Container maxWidth="xl" sx={{ backgroundColor: "transparent" }}>
+            <Toolbar disableGutters sx={{ backgroundColor: "transparent" }}>
               <Typography
                 variant="h6"
                 noWrap
