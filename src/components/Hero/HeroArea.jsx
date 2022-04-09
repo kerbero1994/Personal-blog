@@ -96,9 +96,9 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
           Specializing in custom theme development. If you're a business seeking
           a web presence or are looking to hire, contact me here.
         </h4>
-        <ColorButton variant="contained" size="large" className={styles.CTA}>
+        <Button variant="contained" size="large" className={styles.CTA}>
           Get Started
-        </ColorButton>
+        </Button>
       </Grid>
     </Grid>
   )
