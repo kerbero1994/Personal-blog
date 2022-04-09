@@ -41,6 +41,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     maxWidth: "100%",
     maxHeight: "65px",
   },
+  Force: {
+    backgroundColor: "transparent",
+  },
 }))
 
 function HideOnScroll(props) {
@@ -81,11 +84,19 @@ export default function HideAppBar(props) {
       <HideOnScroll {...props}>
         <AppBar
           color="transparent"
-          className={styles.BGSection}
+          className={styles.Force}
           sx={{ backgroundColor: "transparent" }}
         >
-          <Container maxWidth="xl" sx={{ backgroundColor: "transparent" }}>
-            <Toolbar disableGutters sx={{ backgroundColor: "transparent" }}>
+          <Container
+            maxWidth="xl"
+            sx={{ backgroundColor: "transparent" }}
+            className={styles.Force}
+          >
+            <Toolbar
+              disableGutters
+              sx={{ backgroundColor: "transparent" }}
+              className={styles.Force}
+            >
               <Typography
                 variant="h6"
                 noWrap

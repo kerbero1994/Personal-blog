@@ -45,15 +45,8 @@ const ColorButton = styled(Button)(({ theme }) => ({
   borderRadius: "35px",
   bottom: "-55px",
   display: "block",
-  //margin: 10px;
-  //padding: 15px 45px;
-  //text-align: center;
-  // text-transform: uppercase;
   transition: "0.5s",
   backgroundSize: "200% auto",
-  //box-shadow: 0 0 20px #eee;
-  //border-radius: 10px;
-  //display: block;
 }))
 
 export const BlogsArea = React.memo(function BlogsArea({ posts }) {
