@@ -11,6 +11,7 @@ import Resources from "../components/Resources/Resources"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.blogs.edges
+  const resources = data.resources.edges
   //console.log(data)
 
   if (posts.length === 0) {
@@ -32,11 +33,11 @@ const BlogIndex = ({ data, location }) => {
       <section id="Blog">
         <BlogSection posts={posts} />
       </section>
+      <section id="Resources">
+        <Resources resources={resources} />
+      </section>
       <section id="Contact">
         <Contact />
-      </section>
-      <section id="Resources">
-        <Resources />
       </section>
     </Layout>
   )

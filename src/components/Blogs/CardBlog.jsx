@@ -18,7 +18,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     transition: "0.3s",
     boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
     position: "relative",
-    maxWidth: 500,
+    maxWidth: "28vw",
     marginLeft: "auto",
     overflow: "initial",
     background: "#ffffff",

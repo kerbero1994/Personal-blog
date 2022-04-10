@@ -91,9 +91,18 @@ export const BlogsArea = React.memo(function BlogsArea({ posts }) {
       })}
 
       <Collapse in={CollapseState} className={styles.Full}>
-        {Rest.map(post => {
-          return <CardBlog info={post} />
-        })}
+        <Grid
+          container
+          direction="row"
+          justifyContent="start"
+          alignItems="center"
+          className={styles.Secondary}
+          ref={containerRef}
+        >
+          {Rest.map(post => {
+            return <CardBlog info={post} />
+          })}
+        </Grid>
       </Collapse>
 
       <div className={styles.ButtonDiv}>

@@ -1,97 +1,79 @@
 import React from "react"
-import cx from "clsx"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardMedia from "@material-ui/core/CardMedia"
 import CardContent from "@material-ui/core/CardContent"
-import Button from "@material-ui/core/Button"
-import TextInfoContent from "@mui-treasury/components/content/textInfo"
-import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
-import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
-import { Link } from "gatsby"
+import CardActionArea from "@material-ui/core/CardActionArea"
+//import Button from "@material-ui/core/Button"
+//import { Link } from "gatsby"
 import Grid from "@mui/material/Grid"
+import Color from "color"
+import Typography from "@material-ui/core/Typography"
+import { useFourThreeCardMediaStyles } from "@mui-treasury/styles/cardMedia/fourThree"
 
-const useStyles = makeStyles(({ breakpoints, spacing }) => ({
-  root: {
-    margin: "auto",
-    borderRadius: spacing(2), // 16px
-    transition: "0.3s",
-    boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
-    position: "relative",
-    maxWidth: 500,
-    marginLeft: "auto",
-    overflow: "initial",
-    background: "#ffffff",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    paddingBottom: spacing(2),
-    [breakpoints.up("md")]: {
-      flexDirection: "row",
-      paddingTop: spacing(2),
+const useStyles = makeStyles(() => ({
+  actionArea: {
+    borderRadius: 16,
+    transition: "0.2s",
+    "&:hover": {
+      transform: "scale(1.1)",
     },
   },
-  media: {
-    width: "88%",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginTop: spacing(-3),
-    height: 0,
-    paddingBottom: "48%",
-    borderRadius: spacing(2),
-    backgroundColor: "#fff",
-    position: "relative",
-    [breakpoints.up("md")]: {
-      width: "100%",
-      marginLeft: spacing(-3),
-      marginTop: 0,
-      transform: "translateX(-8px)",
+  card: ({ color }) => ({
+    //minWidth: 256,
+    borderRadius: 16,
+    boxShadow: "none",
+    "&:hover": {
+      boxShadow: `0 6px 12px 0 ${Color(color)
+        .rotate(-12)
+        .darken(0.2)
+        .fade(0.5)}`,
     },
-    "&:after": {
-      content: '" "',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      //backgroundImage: "linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)",
-      borderRadius: spacing(2), // 16
-      opacity: 0.5,
-    },
+  }),
+  content: ({ color }) => {
+    return {
+      backgroundColor: color,
+      padding: "1rem 1.5rem 1.5rem",
+    }
   },
-  content: {
-    padding: 24,
+  title: {
+    fontFamily: "Keania One",
+    fontSize: "2rem",
+    color: "#fff",
+    textTransform: "uppercase",
   },
-  cta: {
-    marginTop: 24,
-    textTransform: "initial",
+  subtitle: {
+    fontFamily: "Montserrat",
+    color: "#fff",
+    opacity: 0.87,
+    marginTop: "2rem",
+    fontWeight: 500,
+    fontSize: 14,
   },
 }))
 
 export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
-  const styles = useStyles()
-  const { button: buttonStyles, ...contentStyles } =
-    useBlogTextInfoContentStyles()
-  const shadowStyles = useOverShadowStyles()
+  const resource = info.node.childMarkdownRemark
+  const classes = useStyles({ color: "#ff9900" })
+  const mediaStyles = useFourThreeCardMediaStyles()
   return (
-    <Grid item xs={4} sx={{ marginBottom: "16px" }} ref={ref}>
-      <Card className={cx(styles.root, shadowStyles.root)}>
-        <CardMedia
-          className={styles.media}
-          image={info.frontmatter.thumbnail}
-        />
-        <CardContent>
-          <TextInfoContent
-            classes={contentStyles}
-            overline={info.frontmatter.date}
-            heading={info.frontmatter.title}
-            body={info.excerpt}
+    <Grid item xs={2} sx={{ padding: "16px" }} ref={ref}>
+      <CardActionArea className={classes.actionArea}>
+        <Card className={classes.card}>
+          <CardMedia
+            classes={mediaStyles}
+            image={resource.frontmatter.thumbnail}
           />
-          <Link to={info.fields.slug}>
-            <Button className={buttonStyles}>Read more</Button>
-          </Link>
-        </CardContent>
-      </Card>
+          <CardContent className={classes.content}>
+            <Typography className={classes.title} variant={"h2"}>
+              {resource.frontmatter.title}
+            </Typography>
+            <Typography className={classes.subtitle}>
+              {resource.frontmatter.date}
+            </Typography>
+          </CardContent>
+        </Card>
+      </CardActionArea>
     </Grid>
   )
 })
