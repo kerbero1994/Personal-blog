@@ -6,10 +6,11 @@ import Seo from "../components/seo"
 import BlogSection from "../components/Blogs/Blog"
 import Hero from "../components/Hero/HeroArea"
 import Contact from "../components/Contact/Compose"
+import Resources from "../components/Resources/Resources"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.blogs.edges
   //console.log(data)
 
   if (posts.length === 0) {
@@ -33,6 +34,9 @@ const BlogIndex = ({ data, location }) => {
       </section>
       <section id="Contact">
         <Contact />
+      </section>
+      <section id="Resources">
+        <Resources />
       </section>
     </Layout>
   )
@@ -65,17 +69,73 @@ export const pageQuery = graphql`
       extension
       publicURL
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
+    demos: allFile(
+      filter: { sourceInstanceName: { eq: "demos" } }
+      sort: {
+        fields: [childrenMarkdownRemark___frontmatter___date]
+        order: DESC
+      }
+    ) {
+      edges {
+        node {
+          id
+          childMarkdownRemark {
+            frontmatter {
+              date
+              description
+              layout
+              thumbnail
+              title
+            }
+          }
         }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          thumbnail
+      }
+    }
+    resources: allFile(
+      filter: { sourceInstanceName: { eq: "resources" } }
+      sort: {
+        fields: [childrenMarkdownRemark___frontmatter___date]
+        order: DESC
+      }
+    ) {
+      edges {
+        node {
+          id
+          childMarkdownRemark {
+            frontmatter {
+              date
+              description
+              layout
+              thumbnail
+              title
+            }
+          }
+        }
+      }
+    }
+    blogs: allFile(
+      filter: { sourceInstanceName: { eq: "blog" } }
+      sort: {
+        fields: [childrenMarkdownRemark___frontmatter___date]
+        order: DESC
+      }
+    ) {
+      edges {
+        node {
+          id
+          childMarkdownRemark {
+            frontmatter {
+              date
+              description
+              layout
+              thumbnail
+              title
+            }
+            excerpt
+            fields {
+              slug
+            }
+          }
         }
       }
     }

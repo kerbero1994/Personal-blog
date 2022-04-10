@@ -3,8 +3,6 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Grid } from "@mui/material"
 import NavBar from "../NavBar"
 import Button from "@mui/material/Button"
-import { styled } from "@mui/material/styles"
-import { orange } from "@mui/material/colors"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
     padding: "0",
@@ -42,28 +40,21 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     margin: "0",
   },
   CTA: {
-    color: theme.palette.getContrastText(orange[500]),
-    backgroundColor: orange[500],
+    color: "white",
+    marginTop: "16px !important",
+    backgroundImage:
+      "linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)",
     "&:hover": {
-      backgroundColor: orange[700],
+      backgroundPosition: "right center",
+      color: "#fff",
+      textDecoration: "none",
     },
     width: "35%",
-    borderRadius: "35px",
-    marginTop: "16px",
+    borderRadius: "35px !important",
     display: "block",
+    transition: "1s  !important",
+    backgroundSize: "200% auto",
   },
-}))
-
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(orange[500]),
-  backgroundColor: orange[500],
-  "&:hover": {
-    backgroundColor: orange[700],
-  },
-  width: "35%",
-  borderRadius: "35px",
-  marginTop: "16px",
-  display: "block",
 }))
 
 export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {

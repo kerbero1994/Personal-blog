@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@mui/material/Grid"
-import CardBlog from "./CardBlog"
+import CardBlog from "./CardDemo"
 import { styled } from "@mui/material/styles"
 import Button from "@mui/material/Button"
 import Collapse from "@mui/material/Collapse"

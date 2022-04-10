@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import SendIcon from "@mui/icons-material/Send"
 import Button from "@mui/material/Button"

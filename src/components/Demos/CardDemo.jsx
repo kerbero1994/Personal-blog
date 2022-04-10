@@ -70,7 +70,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 
 export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
   const styles = useStyles()
-  const blog = info.node.childMarkdownRemark
   const { button: buttonStyles, ...contentStyles } =
     useBlogTextInfoContentStyles()
   const shadowStyles = useOverShadowStyles()
@@ -79,16 +78,16 @@ export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
       <Card className={cx(styles.root, shadowStyles.root)}>
         <CardMedia
           className={styles.media}
-          image={blog.frontmatter.thumbnail}
+          image={info.frontmatter.thumbnail}
         />
         <CardContent>
           <TextInfoContent
             classes={contentStyles}
-            overline={blog.frontmatter.date}
-            heading={blog.frontmatter.title}
-            body={blog.excerpt}
+            overline={info.frontmatter.date}
+            heading={info.frontmatter.title}
+            body={info.excerpt}
           />
-          <Link to={blog.fields.slug}>
+          <Link to={info.fields.slug}>
             <Button className={buttonStyles}>Read more</Button>
           </Link>
         </CardContent>

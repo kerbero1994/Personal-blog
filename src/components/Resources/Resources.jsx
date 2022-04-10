@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@mui/material/Grid"
-import CardBlog from "./CardBlog"
+import CardBlog from "./CardResources"
 import { styled } from "@mui/material/styles"
 import Button from "@mui/material/Button"
 import Collapse from "@mui/material/Collapse"
@@ -67,9 +67,8 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 export const BlogsArea = React.memo(function BlogsArea({ posts }) {
   const styles = useStyles()
-  const Init = posts.slice(0, 3)
-  const Rest = posts.slice(3, posts.length)
-  console.log(posts.slice(2, -1))
+  const Init = []
+  const Rest = []
   const [Fade, setFade] = useState(false)
   const [CollapseState, setCollapseState] = useState(false)
   const containerRef = useRef(null)
