@@ -109,6 +109,7 @@ export const pageQuery = graphql`
               layout
               thumbnail
               title
+              color
             }
           }
         }

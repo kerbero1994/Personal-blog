@@ -8,15 +8,10 @@ import Collapse from "@mui/material/Collapse"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
-    //backgroundImage: "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
     padding: "2%",
     transition: "2s",
-    // background:
-    // "linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898",
-    //backgroundBlendMode: "multiply,multiply",
-    backgroundImage: "linear-gradient(to right, #1e3c72, #2a5298);",
-    //backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
-    //backgroundImage: "linear-gradient(120deg, #f6d365 0%, #fda085 80%)",
+    backgroundImage: "linear-gradient(to top, #09203f 0%, #537895 100%);",
+    borderRadius: "60% 60% 0 0 /15% 15% 0 0",
   },
   ButtonDiv: {
     display: "flex",
@@ -50,8 +45,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 }))
 const ColorButton = styled(Button)(({ theme }) => ({
   color: "white",
-  backgroundImage:
-    "linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)",
+  backgroundImage: "linear-gradient(to top, #09203f 0%, #537895 100%)",
+
   "&:hover": {
     backgroundPosition: "right center",
     color: "#fff",
@@ -95,8 +90,7 @@ export const BlogsArea = React.memo(function BlogsArea({ resources }) {
           return <CardResources info={Resource} />
         })}
       </Collapse>
-
-      <div className={styles.ButtonDiv}>
+      {/*<div className={styles.ButtonDiv}>
         <ColorButton
           variant="contained"
           size="large"
@@ -108,7 +102,7 @@ export const BlogsArea = React.memo(function BlogsArea({ resources }) {
         >
           Show More
         </ColorButton>
-      </div>
+      </div>*/}
     </Grid>
   )
 })

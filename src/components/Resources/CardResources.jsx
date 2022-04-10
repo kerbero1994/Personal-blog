@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid"
 import Color from "color"
 import Typography from "@material-ui/core/Typography"
 import { useFourThreeCardMediaStyles } from "@mui-treasury/styles/cardMedia/fourThree"
+import moment from "moment"
 
 const useStyles = makeStyles(() => ({
   actionArea: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles(() => ({
   },
   card: ({ color }) => ({
     //minWidth: 256,
+    width: "100%",
     borderRadius: 16,
     boxShadow: "none",
     "&:hover": {
@@ -37,10 +39,14 @@ const useStyles = makeStyles(() => ({
     }
   },
   title: {
-    fontFamily: "Keania One",
+    //fontFamily: "Keania One",
     fontSize: "2rem",
     color: "#fff",
+    textAlign: "center",
     textTransform: "uppercase",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
   subtitle: {
     fontFamily: "Montserrat",
@@ -54,7 +60,7 @@ const useStyles = makeStyles(() => ({
 
 export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
   const resource = info.node.childMarkdownRemark
-  const classes = useStyles({ color: "#ff9900" })
+  const classes = useStyles({ color: `${resource.frontmatter.color}` })
   const mediaStyles = useFourThreeCardMediaStyles()
   return (
     <Grid item xs={2} sx={{ padding: "16px" }} ref={ref}>
@@ -69,7 +75,7 @@ export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
               {resource.frontmatter.title}
             </Typography>
             <Typography className={classes.subtitle}>
-              {resource.frontmatter.date}
+              {moment(resource.frontmatter.date).format("lll")}
             </Typography>
           </CardContent>
         </Card>

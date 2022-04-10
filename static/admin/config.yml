@@ -23,12 +23,13 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
+      - { label: "Color", name: "color", widget: "color" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Resume", name: "Resume", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Color", name: "color", widget: "color" }
   - name: "demos" # Used in routes, e.g., /admin/collections/blog
     label: "Demos" # Used in the UI
     folder: "content/demos" # The path to the folder where the documents are stored
