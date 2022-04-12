@@ -1,17 +1,16 @@
-import React, { useState, useRef } from "react"
+import React, { useRef } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@mui/material/Grid"
 import CardResources from "./CardResources"
-import { styled } from "@mui/material/styles"
-import Button from "@mui/material/Button"
-import Collapse from "@mui/material/Collapse"
+//import { styled } from "@mui/material/styles"
+//import Button from "@mui/material/Button"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
     padding: "2%",
     transition: "2s",
     backgroundImage: "linear-gradient(to top, #09203f 0%, #537895 100%);",
-    borderRadius: "60% 60% 0 0 /15% 15% 0 0",
+    borderRadius: "60% 60% 60% 60% /15% 15% 0 0",
   },
   ButtonDiv: {
     display: "flex",
@@ -42,35 +41,35 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     transition: "0.5s !important",
     backgroundSize: "200% auto",
   },
-}))
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: "white",
-  backgroundImage: "linear-gradient(to top, #09203f 0%, #537895 100%)",
-
-  "&:hover": {
-    backgroundPosition: "right center",
-    color: "#fff",
-    textDecoration: "none",
+  Arrow: {
+    color: "white",
+    marginTop: "16px !important",
+    backgroundImage:
+      "linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)",
+    "&:hover": {
+      backgroundPosition: "right center",
+      color: "#fff",
+      textDecoration: "none",
+    },
+    width: "45%",
+    height: "20vh",
+    borderRadius: "35px !important",
+    display: "block",
+    transition: "1s  !important",
+    backgroundSize: "200% auto",
+    clipPath: "polygon(100% 55%, 54% 100%, 0 55%, 0 0, 51% 51%, 100% 0)",
   },
-  width: "35%",
-  borderRadius: "35px",
-  bottom: "-55px",
-  display: "block",
-  transition: "0.5s",
-  backgroundSize: "200% auto",
 }))
 
 export const BlogsArea = React.memo(function BlogsArea({ resources }) {
-  const styles = useStyles()
-  const Init = resources.slice(0, 4)
-  const Rest = resources.slice(4, resources.length)
-  const [Fade, setFade] = useState(false)
-  const [CollapseState, setCollapseState] = useState(false)
-  const containerRef = useRef(null)
-
-  const Asing = () => {
-    setCollapseState(true)
+  let array = []
+  for (let i = 0; i < resources.length; i += 4) {
+    array.push(resources.slice(i, i + 4))
   }
+  console.log(array)
+  const styles = useStyles()
+  let Init = array.length > 1 ? array[0] : []
+  const containerRef = useRef(null)
   return (
     <Grid
       container
@@ -79,29 +78,14 @@ export const BlogsArea = React.memo(function BlogsArea({ resources }) {
       alignItems="center"
       className={styles.BGSection}
       ref={containerRef}
-      spacing={1}
     >
       {Init.map(Resource => {
         return <CardResources info={Resource} />
       })}
-
-      <Collapse in={CollapseState} className={styles.Full}>
-        {Rest.map(Resource => {
-          return <CardResources info={Resource} />
-        })}
-      </Collapse>
-      {/*<div className={styles.ButtonDiv}>
-        <ColorButton
-          variant="contained"
-          size="large"
-          onClick={() => {
-            setFade(true)
-            setTimeout(Asing, 400)
-          }}
-          className={Fade ? styles.buttonFadeOut : styles.button}
-        >
-          Show More
-        </ColorButton>
+      {/*<div>
+        <Button variant="contained" size="large" className={styles.Arrow}>
+          {""}
+        </Button>
       </div>*/}
     </Grid>
   )

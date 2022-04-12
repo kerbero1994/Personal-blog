@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid"
 import Color from "color"
 import Typography from "@material-ui/core/Typography"
 import { useFourThreeCardMediaStyles } from "@mui-treasury/styles/cardMedia/fourThree"
+import Tooltip from "@mui/material/Tooltip"
 import moment from "moment"
 
 const useStyles = makeStyles(() => ({
@@ -64,22 +65,24 @@ export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
   const mediaStyles = useFourThreeCardMediaStyles()
   return (
     <Grid item xs={2} sx={{ padding: "16px" }} ref={ref}>
-      <CardActionArea className={classes.actionArea}>
-        <Card className={classes.card}>
-          <CardMedia
-            classes={mediaStyles}
-            image={resource.frontmatter.thumbnail}
-          />
-          <CardContent className={classes.content}>
-            <Typography className={classes.title} variant={"h2"}>
-              {resource.frontmatter.title}
-            </Typography>
-            <Typography className={classes.subtitle}>
-              {moment(resource.frontmatter.date).format("lll")}
-            </Typography>
-          </CardContent>
-        </Card>
-      </CardActionArea>
+      <Tooltip title={resource.frontmatter.title} placement="bottom">
+        <CardActionArea className={classes.actionArea}>
+          <Card className={classes.card}>
+            <CardMedia
+              classes={mediaStyles}
+              image={resource.frontmatter.thumbnail}
+            />
+            <CardContent className={classes.content}>
+              <Typography className={classes.title} variant={"h2"}>
+                {resource.frontmatter.title}
+              </Typography>
+              <Typography className={classes.subtitle}>
+                {moment(resource.frontmatter.date).format("lll")}
+              </Typography>
+            </CardContent>
+          </Card>
+        </CardActionArea>
+      </Tooltip>
     </Grid>
   )
 })
