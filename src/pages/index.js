@@ -7,6 +7,7 @@ import BlogSection from "../components/Blogs/Blog"
 import Hero from "../components/Hero/HeroArea"
 import Contact from "../components/Contact/Compose"
 import Resources from "../components/Resources/Resources"
+import AboutMe from "../components/AboutMe"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -30,6 +31,9 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero Background={data.Background.publicURL} Logo={data.Logo.publicURL} />
+      <section id="About me">
+        <AboutMe Background={data.AboutMe.publicURL} />
+      </section>
       <section id="Blog">
         <BlogSection posts={posts} />
       </section>
@@ -53,6 +57,15 @@ export const pageQuery = graphql`
       }
     }
     Background: file(relativePath: { eq: "purple.svg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+      extension
+      publicURL
+    }
+    AboutMe: file(relativePath: { eq: "AboutMe4.svg" }) {
       childImageSharp {
         fluid(quality: 100, maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp

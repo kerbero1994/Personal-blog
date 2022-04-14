@@ -4,7 +4,8 @@ import { makeStyles } from "@material-ui/core/styles"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   Global: {
     maxWidth: "100%",
-    backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+    //backgroundImage: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+    backgroundColor: "#e2ebf0",
   },
 }))
 
