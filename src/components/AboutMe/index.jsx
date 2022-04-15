@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@mui/material/Grid"
 import CardPersonal from "./CardPersonal"
+import CardExperience from "./CardExperience"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
     padding: "2%",
@@ -67,7 +68,7 @@ export const AboutMeArea = React.memo(function AboutMeArea({ Background }) {
         spacing={1}
       >
         <Grid item xs={6}>
-          <CardPersonal />
+          <CardExperience />
         </Grid>
         <Grid
           item

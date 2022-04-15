@@ -44,9 +44,9 @@ export default function OutlinedCard() {
     <Box sx={{ minWidth: 275 }}>
       <Card
         style={{
-          backgroundImage:
-            "linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)",
+          backgroundImage: "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
           height: "100%",
+          borderRadius: "16px",
         }}
         variant="outlined"
       >
