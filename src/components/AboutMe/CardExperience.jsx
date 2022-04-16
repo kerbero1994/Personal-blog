@@ -14,33 +14,49 @@ const card = (
     <Grid item xs={3}>
       <CardExp
         title={"React"}
-        color={"rgb(97,218,251)"}
+        img={
+          "https://blog.desafiolatam.com/wp-content/uploads/2019/04/react-galaxia.png"
+        }
+        years={"5 years"}
+        color={"rgb(25,33,69)"}
         gradiente={
-          "radial-gradient(circle, rgba(97,218,251,1) 54%, rgba(97,157,251,1) 100%)"
+          "radial-gradient(circle, rgba(25,33,69,1) 14%, rgba(21,27,59,1) 84%)"
         }
       />
     </Grid>
     <Grid item xs={3}>
       <CardExp
         title={"React Native"}
-        color={"white"}
+        years={"3 years"}
+        color={"#2E4EBF"}
+        img={
+          "https://s3.ap-southeast-1.amazonaws.com/arrowhitech.com/wp-content/uploads/2021/09/23022436/b_How-to-Deploy-a-React-Native-App-for-iOS-and-Android-.png"
+        }
         gradiente={"linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"}
       />
     </Grid>
     <Grid item xs={3}>
       <CardExp
         title={"Redux"}
-        color={"#white"}
+        color={"#764ABD"}
         gradiente={
           "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)"
         }
+        img={
+          "https://wunnle.com/static/60c3ccf040c3de42b695c6683e2b19cf/aabac/social.jpg"
+        }
+        years={"3 years"}
       />
     </Grid>
     <Grid item xs={3}>
       <CardExp
         title={"Gatsby"}
-        color={"#white"}
+        color={"#40126F"}
         gradiente={"linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)"}
+        img={
+          "https://images.ctfassets.net/23aumh6u8s0i/1vxNyK4RaOzRrc5ELJ8rqo/ec2a9b9dab9fb851db2794d80fe0f92d/gatsbyjs"
+        }
+        years={"3 years"}
       />
     </Grid>
   </Grid>

@@ -3,6 +3,11 @@ import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@mui/material/Grid"
 import CardPersonal from "./CardPersonal"
 import CardExperience from "./CardExperience"
+import Personal from "./Personal"
+import LastAdventure from "./LastAdventure"
+import WorkInProgress from "./WorkInProgress"
+import BonusInfo from "./BonusInfo"
+
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
     padding: "2%",
@@ -53,10 +58,10 @@ export const AboutMeArea = React.memo(function AboutMeArea({ Background }) {
           <CardPersonal />
         </Grid>
         <Grid item xs={5}>
-          <CardPersonal />
+          <Personal />
         </Grid>
         <Grid item xs={5}>
-          <CardPersonal />
+          <LastAdventure />
         </Grid>
       </Grid>
       <Grid
@@ -80,10 +85,10 @@ export const AboutMeArea = React.memo(function AboutMeArea({ Background }) {
           spacing={1}
         >
           <Grid item xs={6}>
-            <CardPersonal />
+            <WorkInProgress />
           </Grid>
           <Grid item xs={6}>
-            <CardPersonal />
+            <BonusInfo />
           </Grid>
         </Grid>
       </Grid>
