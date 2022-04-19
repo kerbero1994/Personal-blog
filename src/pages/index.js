@@ -32,7 +32,10 @@ const BlogIndex = ({ data, location }) => {
       </Helmet>
       <Hero Background={data.Background.publicURL} Logo={data.Logo.publicURL} />
       <section id="About me">
-        <AboutMe Background={data.AboutMe.publicURL} />
+        <AboutMe
+          Background={data.AboutMe.publicURL}
+          Profile={data.profilePic.childImageSharp.fluid}
+        />
       </section>
       <section id="Blog">
         <BlogSection posts={posts} />
@@ -55,6 +58,15 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
+    }
+    profilePic: file(relativePath: { eq: "profile-pic.png" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+      extension
+      publicURL
     }
     Background: file(relativePath: { eq: "purple.svg" }) {
       childImageSharp {

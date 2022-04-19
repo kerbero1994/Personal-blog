@@ -33,7 +33,10 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
 }))
 
-export const AboutMeArea = React.memo(function AboutMeArea({ Background }) {
+export const AboutMeArea = React.memo(function AboutMeArea({
+  Background,
+  Profile,
+}) {
   const styles = useStyles()
 
   return (
@@ -55,7 +58,7 @@ export const AboutMeArea = React.memo(function AboutMeArea({ Background }) {
         style={{ marginBottom: "16px" }}
       >
         <Grid item xs={2}>
-          <CardPersonal />
+          <CardPersonal Profile={Profile} />
         </Grid>
         <Grid item xs={5}>
           <Personal />

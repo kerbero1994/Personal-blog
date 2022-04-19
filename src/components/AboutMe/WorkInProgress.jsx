@@ -231,7 +231,8 @@ export default function OutlinedCard() {
     <Box sx={{ minWidth: 275 }}>
       <Card
         style={{
-          backgroundImage: "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
+          //backgroundImage: "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
+          background: "transparent",
           minHeight: "100%",
           borderRadius: "16px",
         }}

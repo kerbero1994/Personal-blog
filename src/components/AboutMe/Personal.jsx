@@ -10,10 +10,10 @@ import { useRoundSocialLinkStyles } from "@mui-treasury/styles/socialLink/round"
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        FrontEnd Developer * Movil Developer * UX/UI
+      <Typography sx={{ fontSize: 24 }} gutterBottom>
+        FrontEnd Developer Movil Developer UX/UI
       </Typography>
-      <Typography variant="body2">
+      <Typography sx={{ mb: 1.5 }} color="text.secondary">
         Hello, I'm Eduardo, a front end developer looking for new challenges and
         opportunities, I currently work as a consultant and freelancer for
         multiple organizations throughout Mexico, mainly versed in web
@@ -23,7 +23,6 @@ const card = (
         {
           "<The most important thing for a design is the balance between time and utility>"
         }
-        <br />
         <br />
       </Typography>
     </CardContent>
@@ -59,7 +58,8 @@ export default function OutlinedCard() {
     <Box sx={{ minWidth: 275 }}>
       <Card
         style={{
-          backgroundImage: "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
+          backgroundImage:
+            "linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)",
           height: "100%",
           borderRadius: "16px",
         }}
