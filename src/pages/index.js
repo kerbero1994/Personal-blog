@@ -35,6 +35,7 @@ const BlogIndex = ({ data, location }) => {
         <AboutMe
           Background={data.AboutMe.publicURL}
           Profile={data.profilePic.childImageSharp.fluid}
+          resources={resources}
         />
       </section>
       <section id="Blog">

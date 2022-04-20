@@ -36,6 +36,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 export const AboutMeArea = React.memo(function AboutMeArea({
   Background,
   Profile,
+  resources,
 }) {
   const styles = useStyles()
 
@@ -91,7 +92,7 @@ export const AboutMeArea = React.memo(function AboutMeArea({
             <WorkInProgress />
           </Grid>
           <Grid item xs={6}>
-            <BonusInfo />
+            <BonusInfo resources={resources} />
           </Grid>
         </Grid>
       </Grid>
