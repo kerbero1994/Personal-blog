@@ -4,6 +4,7 @@ import SendIcon from "@mui/icons-material/Send"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
 import Grid from "@mui/material/Grid"
+import { useForm, ValidationError } from "@formspree/react"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   titleArea: {
@@ -30,14 +31,39 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     justifyContent: "flex-start",
   },
   TextField: {
-    width: "60%",
+    width: "80%",
     margin: "8px",
+  },
+  CTA: {
+    color: "white",
+    marginTop: "16px !important",
+    backgroundImage:
+      "linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)",
+    "&:hover": {
+      backgroundPosition: "right center",
+      color: "#fff",
+      textDecoration: "none",
+    },
+    width: "35%",
+    borderRadius: "35px !important",
+    display: "block",
+    transition: "1s  !important",
+    backgroundSize: "200% auto",
+    fontWeight: 700,
   },
 }))
 
 export const ContactCompose = React.memo(function ContactCompose() {
   const styles = useStyles()
-
+  const [state, handleSubmit] = useForm("myyonrdn")
+  if (state.succeeded) {
+    return (
+      <p>
+        Thank you for your interest as soon as possible I will answer your
+        message
+      </p>
+    )
+  }
   return (
     <Grid
       container
@@ -47,33 +73,57 @@ export const ContactCompose = React.memo(function ContactCompose() {
       className={styles.Container}
     >
       <Grid item xs={4} sx={{ marginBottom: "16px" }}>
-        <div className={styles.titleArea}>
-          <h2 className={styles.titleText}>Get in touch</h2>
-        </div>
-        <div className={styles.EmailArea}>
-          <TextField
-            label="E-mail"
-            defaultValue=" "
-            className={styles.TextField}
-          />
-        </div>
-        <div className={styles.TextAreaContainer}>
-          <TextField
-            label="Message"
-            multiline
-            rows={4}
-            //value={val}
-            //onChange={handleChange}
-            variant="outlined"
-            className={styles.TextArea}
-          />
-        </div>
+        <form onSubmit={handleSubmit} className={styles.FormContainer}>
+          <div className={styles.titleArea}>
+            <h2 className={styles.titleText}>Quick E-mail</h2>
+          </div>
+          <div className={styles.EmailArea}>
+            <TextField
+              label="E-mail"
+              defaultValue=" "
+              id="email"
+              type="email"
+              name="email"
+              className={styles.TextField}
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+          </div>
+          <div className={styles.TextAreaContainer}>
+            <TextField
+              label="Message"
+              multiline
+              rows={4}
+              //value={val}
+              //onChange={handleChange}
+              variant="outlined"
+              className={styles.TextArea}
+              id="message"
+              name="message"
+            />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
+          </div>
 
-        <div className={styles.titleArea}>
-          <Button variant="contained" endIcon={<SendIcon />}>
-            Send
-          </Button>
-        </div>
+          <div className={styles.titleArea}>
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              type="submit"
+              size="large"
+              className={styles.CTA}
+              disabled={state.submitting}
+            >
+              Send
+            </Button>
+          </div>
+        </form>
       </Grid>
     </Grid>
   )

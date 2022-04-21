@@ -69,7 +69,6 @@ export const BlogsArea = React.memo(function BlogsArea({ posts }) {
   const styles = useStyles()
   const Init = posts.slice(0, 3)
   const Rest = posts.slice(3, posts.length)
-  console.log(posts.slice(2, -1))
   const [Fade, setFade] = useState(false)
   const [CollapseState, setCollapseState] = useState(false)
   const containerRef = useRef(null)

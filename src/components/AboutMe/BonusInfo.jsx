@@ -22,8 +22,7 @@ export default function OutlinedCard({ resources }) {
       >
         <CardContent>
           <Typography
-            //sx={{ fontSize: 14 }}
-            gutterBottom
+            sx={{ fontSize: 24, fontWeight: 700 }}
             align="center"
             variant="h6"
             color="white"

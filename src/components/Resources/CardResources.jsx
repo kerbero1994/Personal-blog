@@ -61,7 +61,11 @@ const useStyles = makeStyles(() => ({
 
 export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
   const resource = info.node.childMarkdownRemark
-  const classes = useStyles({ color: `${resource.frontmatter.color}` })
+  const classes = useStyles({
+    color: resource.frontmatter.color
+      ? `${resource.frontmatter.color}`
+      : "#fff",
+  })
   const mediaStyles = useFourThreeCardMediaStyles()
   return (
     <Grid item xs={2} sx={{ padding: "16px" }} ref={ref}>

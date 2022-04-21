@@ -120,12 +120,12 @@ export default function OutlinedCard() {
     >
       <CardContent>
         <Typography
-          sx={{ width: "100%", fontSize: 24 }}
+          sx={{ width: "100%", fontSize: 24, fontWeight: 700 }}
           gutterBottom
           color="white"
           align="center"
         >
-          working hard to learn more
+          Working hard to learn more
         </Typography>
         <Typography variant="h5" component="div">
           <p align="left">

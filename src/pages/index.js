@@ -14,7 +14,6 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.blogs.edges
   const resources = data.resources.edges
   const DemosInfo = data.demos.edges
-  //console.log(data)
 
   if (posts.length === 0) {
     return (
@@ -114,6 +113,7 @@ export const pageQuery = graphql`
               layout
               thumbnail
               title
+              color
             }
           }
         }

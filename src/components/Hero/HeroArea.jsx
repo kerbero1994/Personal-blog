@@ -54,11 +54,11 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     display: "block",
     transition: "1s  !important",
     backgroundSize: "200% auto",
+    fontWeight: 700,
   },
 }))
 
 export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
-  //console.log("Back", Background)
   const styles = useStyles()
 
   return (
@@ -80,14 +80,17 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
         container
         direction="column"
       >
-        <h2 className={styles.title}>Frontend Developer</h2>
-        <h2 className={styles.title}> </h2>
-        <h2 className={styles.title}>Movil Developer</h2>
+        <h2 className={styles.title}>HELLO!</h2>
         <h4 className={styles.Subtitle}>
-          Specializing in custom theme development. If you're a business seeking
-          a web presence or are looking to hire, contact me here.
+          Ready to meet someone in 10 min? look around and search, discover
+          something new or just pass by anyway you're welcome.
         </h4>
-        <Button variant="contained" size="large" className={styles.CTA}>
+        <Button
+          variant="contained"
+          size="large"
+          className={styles.CTA}
+          href={`#About me`}
+        >
           Get Started
         </Button>
       </Grid>

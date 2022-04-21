@@ -3,7 +3,6 @@ import Box from "@mui/material/Box"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function OutlinedCard({ Profile }) {
-  console.log("da fuq", Profile.srcWebp)
   const profileurl = Profile.srcWebp
   return (
     <Box sx={{ minWidth: 275 }}>

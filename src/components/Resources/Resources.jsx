@@ -62,14 +62,17 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 }))
 
 export const BlogsArea = React.memo(function BlogsArea({ resources }) {
-  let array = []
+  /* let array = []
   for (let i = 0; i < resources.length; i += 4) {
     array.push(resources.slice(i, i + 4))
   }
-  console.log(array)
-  const styles = useStyles()
+  
+  
   let Init = array.length > 1 ? array[0] : []
+  */
+  console.log(resources)
   const containerRef = useRef(null)
+  const styles = useStyles()
   return (
     <Grid
       container
@@ -79,14 +82,9 @@ export const BlogsArea = React.memo(function BlogsArea({ resources }) {
       className={styles.BGSection}
       ref={containerRef}
     >
-      {Init.map(Resource => {
-        return <CardResources info={Resource} />
+      {resources.map(resource => {
+        return <CardResources info={resource} />
       })}
-      {/*<div>
-        <Button variant="contained" size="large" className={styles.Arrow}>
-          {""}
-        </Button>
-      </div>*/}
     </Grid>
   )
 })

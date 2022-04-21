@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     transition: "0.2s",
     marginBottom: 2,
     "&:hover": {
-      transform: "scale(1.1)",
+      transform: "scale(1.04)",
     },
   },
   card: ({ color }) => ({
@@ -38,7 +38,6 @@ const useStyles = makeStyles(() => ({
 }))
 export default React.memo(function DarkRapListItem({ info }) {
   const resource = info.node.childMarkdownRemark
-  console.log(info)
   const classes = useStyles({ color: `${resource.frontmatter.color}` })
   const avatarStyles = useDynamicAvatarStyles({ size: 70 })
   return (

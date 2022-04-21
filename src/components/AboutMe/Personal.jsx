@@ -10,7 +10,12 @@ import { useRoundSocialLinkStyles } from "@mui-treasury/styles/socialLink/round"
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 24 }} gutterBottom color="white">
+      <Typography
+        sx={{ fontSize: 24, fontWeight: 700 }}
+        gutterBottom
+        color="white"
+        align="center"
+      >
         FrontEnd Developer Movil Developer UX/UI
       </Typography>
       <Typography sx={{ mb: 1.5 }} color="white">
