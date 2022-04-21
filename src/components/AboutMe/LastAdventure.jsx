@@ -8,10 +8,10 @@ import Typography from "@mui/material/Typography"
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 24 }} gutterBottom>
+      <Typography sx={{ fontSize: 24 }} gutterBottom color="white">
         Resent Works
       </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+      <Typography sx={{ mb: 1.5 }} color="white">
         Consultant and developer for the largest union of the metal-mechanical
         industry in Mexico{" "}
         <a href={"https://sitimm.org"} style={{ textDecoration: "none" }}>
@@ -39,7 +39,7 @@ export default function OutlinedCard() {
       <Card
         style={{
           backgroundImage:
-            "linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)",
+            "linear-gradient(180deg, rgba(102,0,255,1) 8%, rgba(0,17,34,1) 44%)",
           height: "100%",
           borderRadius: "16px",
         }}

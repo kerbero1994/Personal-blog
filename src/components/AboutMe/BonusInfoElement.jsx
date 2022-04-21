@@ -38,6 +38,7 @@ const useStyles = makeStyles(() => ({
 }))
 export default React.memo(function DarkRapListItem({ info }) {
   const resource = info.node.childMarkdownRemark
+  console.log(info)
   const classes = useStyles({ color: `${resource.frontmatter.color}` })
   const avatarStyles = useDynamicAvatarStyles({ size: 70 })
   return (

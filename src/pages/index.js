@@ -6,13 +6,14 @@ import Seo from "../components/seo"
 import BlogSection from "../components/Blogs/Blog"
 import Hero from "../components/Hero/HeroArea"
 import Contact from "../components/Contact/Compose"
-import Resources from "../components/Resources/Resources"
+import Demos from "../components/Resources/Resources"
 import AboutMe from "../components/AboutMe"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.blogs.edges
   const resources = data.resources.edges
+  const DemosInfo = data.demos.edges
   //console.log(data)
 
   if (posts.length === 0) {
@@ -41,8 +42,8 @@ const BlogIndex = ({ data, location }) => {
       <section id="Blog">
         <BlogSection posts={posts} />
       </section>
-      <section id="Resources">
-        <Resources resources={resources} />
+      <section id="Demos">
+        <Demos resources={DemosInfo} />
       </section>
       <section id="Contact">
         <Contact />
@@ -136,6 +137,8 @@ export const pageQuery = graphql`
               thumbnail
               title
               color
+              Url
+              Resume
             }
           }
         }

@@ -16,7 +16,6 @@ import MenuItem from "@mui/material/MenuItem"
 import BookIcon from "@mui/icons-material/Book"
 import PersonSearchIcon from "@mui/icons-material/PersonSearch"
 import EmailIcon from "@mui/icons-material/Email"
-import ImportContactsIcon from "@mui/icons-material/ImportContacts"
 import WorkIcon from "@mui/icons-material/Work"
 import Tooltip from "@mui/material/Tooltip"
 import "@fontsource/ibm-plex-serif"
@@ -66,7 +65,6 @@ export default function HideAppBar(props) {
   const pages = [
     { name: "About me", icon: <PersonSearchIcon sx={{ color: "white" }} /> },
     { name: "Contact", icon: <EmailIcon sx={{ color: "white" }} /> },
-    { name: "Resources", icon: <ImportContactsIcon sx={{ color: "white" }} /> },
     { name: "Demos", icon: <WorkIcon sx={{ color: "white" }} /> },
     { name: "Blog", icon: <BookIcon sx={{ color: "white" }} /> },
   ]

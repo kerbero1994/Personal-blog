@@ -6,20 +6,29 @@ import Typography from "@mui/material/Typography"
 import BonusElement from "./BonusInfoElement"
 export default function OutlinedCard({ resources }) {
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 275, padding: 1 }}>
       <Card
         style={{
-          background: "transparent",
           minHeight: "100%",
           borderRadius: "16px",
           maxHeight: "295px",
           overflowY: "auto",
           overflowX: "hide",
+          padding: 1,
+          background: "rgb(102,0,255)",
+          backgroundImage:
+            "radial-gradient(circle, rgba(102,0,255,1) 8%, rgba(0,17,34,1) 58%)",
         }}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Free resources
+          <Typography
+            //sx={{ fontSize: 14 }}
+            gutterBottom
+            align="center"
+            variant="h6"
+            color="white"
+          >
+            Toolbox
           </Typography>
           {resources &&
             resources.length > 0 &&
