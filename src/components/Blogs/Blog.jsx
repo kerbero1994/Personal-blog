@@ -5,6 +5,7 @@ import CardBlog from "./CardBlog"
 import { styled } from "@mui/material/styles"
 import Button from "@mui/material/Button"
 import Collapse from "@mui/material/Collapse"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     width: "100%",
   },
   buttonFadeOut: {
-    visibility: "hidden",
+    visibility: "visible",
     opacity: "0",
     transition: "visibility 0s 2s, opacity 2s linear",
   },
@@ -46,6 +47,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     display: "block",
     transition: "0.5s !important",
     backgroundSize: "200% auto",
+    visibility: "visible",
+    opacity: "1",
   },
 }))
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -105,17 +108,23 @@ export const BlogsArea = React.memo(function BlogsArea({ posts }) {
       </Collapse>
 
       <div className={styles.ButtonDiv}>
-        <ColorButton
-          variant="contained"
-          size="large"
-          onClick={() => {
-            setFade(true)
-            setTimeout(Asing, 400)
-          }}
-          className={Fade ? styles.buttonFadeOut : styles.button}
+        <Link
+          to="/Blogs"
+          style={{ textDecoration: "none" }}
+          className={styles.ButtonDiv}
         >
-          Show More
-        </ColorButton>
+          <ColorButton
+            variant="contained"
+            size="large"
+            onClick={() => {
+              setFade(true)
+              setTimeout(Asing, 400)
+            }}
+            className={Fade ? styles.buttonFadeOut : styles.button}
+          >
+            Show More
+          </ColorButton>
+        </Link>
       </div>
     </Grid>
   )

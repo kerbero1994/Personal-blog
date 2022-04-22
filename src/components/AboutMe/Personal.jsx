@@ -53,6 +53,10 @@ const card = (
           brand={"GithubCircle"}
           href={"https://github.com/kerbero1994"}
         />
+        <SocialLink
+          brand={"GithubCircle"}
+          href={"https://gitlab.com/kerbero1994"}
+        />
       </SocialProvider>
     </CardActions>
   </React.Fragment>

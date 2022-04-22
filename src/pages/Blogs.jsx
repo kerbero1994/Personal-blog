@@ -1,16 +1,26 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/OnPagesLayout"
 import Seo from "../components/seo"
-import BlogSection from "../components/Blogs/Blog"
+import CardBlog from "../components/Blogs/CardBlog"
+import { makeStyles } from "@material-ui/core/styles"
+import Grid from "@mui/material/Grid"
 
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+  PrincipalContainer: {
+    width: "100%",
+  },
+}))
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.blogs.edges
+  const styles = useStyles()
+  const Footer = data.BackgroundFooter.publicURL
+  console.log(data)
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={siteTitle} FooterImg={Footer}>
         <Seo title="All posts" />
         <p>Something strange happened, no blogs enable</p>
       </Layout>
@@ -19,7 +29,17 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <BlogSection posts={posts} />
+      <Grid
+        container
+        direction="row"
+        justifyContent="start"
+        alignItems="center"
+        className={styles.Secondary}
+      >
+        {posts.map(post => {
+          return <CardBlog info={post} />
+        })}
+      </Grid>
     </Layout>
   )
 }
@@ -32,6 +52,10 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
+    }
+    BackgroundFooter: file(relativePath: { eq: "Footer.svg" }) {
+      extension
+      publicURL
     }
     blogs: allFile(
       filter: { sourceInstanceName: { eq: "blog" } }

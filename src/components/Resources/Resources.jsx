@@ -10,7 +10,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     padding: "2%",
     transition: "2s",
     backgroundImage: "linear-gradient(to top, #09203f 0%, #537895 100%);",
-    borderRadius: "60% 60% 60% 60% /15% 15% 0 0",
+    //borderRadius: "60% 60% 60% 60% /15% 15% 0 0",
   },
   ButtonDiv: {
     display: "flex",

@@ -54,7 +54,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     display: "block",
     transition: "1s  !important",
     backgroundSize: "200% auto",
-    fontWeight: 700,
   },
 }))
 

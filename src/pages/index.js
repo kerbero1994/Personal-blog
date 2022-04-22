@@ -29,6 +29,12 @@ const BlogIndex = ({ data, location }) => {
       <Seo title="All posts" />
       <Helmet>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <script
+          src="https://platform.linkedin.com/badges/js/profile.js"
+          async
+          defer
+          type="text/javascript"
+        ></script>
       </Helmet>
       <Hero Background={data.Background.publicURL} Logo={data.Logo.publicURL} />
       <section id="About me">
@@ -38,11 +44,11 @@ const BlogIndex = ({ data, location }) => {
           resources={resources}
         />
       </section>
-      <section id="Blog">
-        <BlogSection posts={posts} />
-      </section>
       <section id="Demos">
         <Demos resources={DemosInfo} />
+      </section>
+      <section id="Blog">
+        <BlogSection posts={posts} />
       </section>
       <section id="Contact">
         <Contact />
@@ -70,20 +76,10 @@ export const pageQuery = graphql`
       publicURL
     }
     Background: file(relativePath: { eq: "purple.svg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
       extension
       publicURL
     }
     AboutMe: file(relativePath: { eq: "AboutMe4.svg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
       extension
       publicURL
     }

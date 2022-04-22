@@ -10,6 +10,7 @@ import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoConte
 import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
 import { Link } from "gatsby"
 import Grid from "@mui/material/Grid"
+import moment from "moment"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -84,7 +85,7 @@ export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
         <CardContent>
           <TextInfoContent
             classes={contentStyles}
-            overline={blog.frontmatter.date}
+            overline={moment(blog.frontmatter.date).format("lll")}
             heading={blog.frontmatter.title}
             body={blog.excerpt}
           />

@@ -1,11 +1,10 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import AboutMe from "../components/AboutMe"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const resources = data.resources.edges
+  //const resources = data.resources.edges
   return <Layout location={location} title={siteTitle}></Layout>
 }
 
