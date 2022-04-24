@@ -6,6 +6,19 @@ import TextField from "@mui/material/TextField"
 import Grid from "@mui/material/Grid"
 import { useForm, ValidationError } from "@formspree/react"
 import { StaticQuery, graphql } from "gatsby"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
+import { Link } from "gatsby"
+import HomeIcon from "@mui/icons-material/Home"
+import BookIcon from "@mui/icons-material/Book"
+import WorkIcon from "@mui/icons-material/Work"
+import CollectionsIcon from "@mui/icons-material/Collections"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import EmailIcon from "@mui/icons-material/Email"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   titleArea: {
@@ -57,8 +70,62 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   titleText: {
     color: "white",
   },
+  MenuElement: {
+    textDecoration: "none",
+    color: "#000",
+  },
+  Icon: {
+    transition: "0.2s",
+    "&:hover": {
+      transform: "scale(1.2)",
+    },
+  },
+  List: {
+    borderLeft: "9px solid #3c89fc",
+    borderRadius: "0px 40px 40px 0px",
+  },
 }))
 
+const ListMenu = [
+  { name: "HOME", url: "/", icon: <HomeIcon style={{ color: "#001122" }} /> },
+  {
+    name: "BLOGS",
+    url: "/Blogs",
+    icon: <BookIcon style={{ color: "#001122" }} />,
+  },
+  {
+    name: "DEMOS",
+    url: "/Demos",
+    icon: <WorkIcon style={{ color: "#001122" }} />,
+  },
+  {
+    name: "RESOURCES",
+    url: "/Resources",
+    icon: <CollectionsIcon style={{ color: "#001122" }} />,
+  },
+]
+const ListSocial = [
+  {
+    name: "kerbero1994",
+    url: "https://gitlab.com/kerbero1994",
+    icon: <GitHubIcon style={{ color: "#001122" }} />,
+  },
+  {
+    name: "Eduglezzvl",
+    url: "https://twitter.com/Eduglezzvl",
+    icon: <TwitterIcon style={{ color: "#001122" }} />,
+  },
+  {
+    name: "eduglezzvl94",
+    url: "https://www.linkedin.com/in/eduglezzvl94/",
+    icon: <LinkedInIcon style={{ color: "#001122" }} />,
+  },
+  {
+    name: "Eduglezzvl@gmail.com",
+    url: "mailto:eduglezzvl@gmail.com",
+    icon: <EmailIcon style={{ color: "#001122" }} />,
+  },
+]
 export const ContactCompose = React.memo(function ContactCompose() {
   const styles = useStyles()
   const [state, handleSubmit] = useForm("myyonrdn")
@@ -94,8 +161,48 @@ export const ContactCompose = React.memo(function ContactCompose() {
           className={styles.Container}
           style={{ backgroundImage: `url(${data.BackgroundFooter.publicURL})` }}
         >
-          <Grid item xs={4} sx={{ marginBottom: "16px" }}></Grid>
-          <Grid item xs={4} sx={{ marginBottom: "16px" }}></Grid>
+          <Grid
+            item
+            xs={4}
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <List className={styles.List}>
+              {ListMenu.map(element => {
+                return (
+                  <Link to={element.url} className={styles.MenuElement}>
+                    <ListItem className={styles.Icon}>
+                      <ListItemIcon>{element.icon}</ListItemIcon>
+                      <ListItemText primary={element.name} />
+                    </ListItem>
+                  </Link>
+                )
+              })}
+            </List>
+          </Grid>
+          <Grid
+            item
+            xs={4}
+            container
+            direction="row"
+            justifyContent="start"
+            alignItems="center"
+          >
+            <List className={styles.List}>
+              {ListSocial.map(element => {
+                return (
+                  <a href={element.url} className={styles.MenuElement}>
+                    <ListItem className={styles.Icon}>
+                      <ListItemIcon>{element.icon}</ListItemIcon>
+                      <ListItemText primary={element.name} />
+                    </ListItem>
+                  </a>
+                )
+              })}
+            </List>
+          </Grid>
           <Grid item xs={4} sx={{ marginBottom: "16px" }}>
             <form onSubmit={handleSubmit} className={styles.FormContainer}>
               <div className={styles.titleArea}>

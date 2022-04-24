@@ -2,7 +2,6 @@ import * as React from "react"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
-import Typography from "@mui/material/Typography"
 import BonusElement from "./BonusInfoElement"
 import { makeStyles } from "@material-ui/core/styles"
 import { Link } from "gatsby"
@@ -43,7 +42,8 @@ export default function OutlinedCard({ resources }) {
         }}
       >
         <CardContent>
-          <Typography
+          {/*
+         <Typography
             sx={{ fontSize: 24, fontWeight: 700 }}
             align="center"
             variant="h6"
@@ -51,6 +51,7 @@ export default function OutlinedCard({ resources }) {
           >
             Toolbox
           </Typography>
+         */}
           {resources &&
             resources.length > 0 &&
             resources.map(resource => {
