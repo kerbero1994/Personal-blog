@@ -35,12 +35,12 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-material-ui",
-      options: { stylesProvider: { injectFirst: true } },
+      options: {},
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`IBM Plex Serif\:300,400,700`, `Press Start 2P\:300,400,700`],
+        fonts: [`IBM Plex Serif`, `Press Start 2P`],
         display: "swap",
       },
     },

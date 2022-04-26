@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { makeStyles } from "@material-ui/core/styles"
+import "../styles/404.css"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   img: {
@@ -36,7 +37,12 @@ const NotFoundPage = ({ data, location }) => {
         alt="Profile picture"
       />
       <div className={styles.center}>
-        <h1 className={styles.Title}>Lost Signal</h1>
+        <h1
+          className={styles.Title}
+          style={{ fontFamily: "Press Start 2P, cursive" }}
+        >
+          Lost Signal
+        </h1>
         <h1 className={styles.Title}>404 Not Found</h1>
       </div>
     </div>
