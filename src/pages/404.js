@@ -1,18 +1,45 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import { makeStyles } from "@material-ui/core/styles"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+  img: {
+    maxWidth: "100vw",
+    maxHeight: "100vh",
+  },
+  container: {
+    position: "relative",
+  },
+  center: {
+    position: "absolute",
+    top: "50%",
+    left: "30%",
+    transform: "translate(-50%, -50%)",
+    fontSize: "18px",
+  },
+  Title: {
+    fontFamily: "Press Start 2P, cursive",
+    color: "white",
+  },
+}))
 const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-
+  const styles = useStyles()
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </Layout>
+    <div className={styles.container}>
+      <StaticImage
+        className={styles.img}
+        layout="fixed"
+        formats={["auto", "webp", "avif", "jpg"]}
+        src="../images/404.jpg"
+        quality={95}
+        alt="Profile picture"
+      />
+      <div className={styles.center}>
+        <h1 className={styles.Title}>Lost Signal</h1>
+        <h1 className={styles.Title}>404 Not Found</h1>
+      </div>
+    </div>
   )
 }
 

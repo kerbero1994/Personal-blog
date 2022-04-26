@@ -3,10 +3,14 @@ module.exports = {
     title: `Personal Blog`,
     author: {
       name: `Eduardo Gonzalez Zavala`,
-      summary: `who lives and works in Mexico building useful things.`,
+      summary: `front end developer looking for new challenges and
+      opportunities, I currently work as a consultant and freelancer for
+      multiple organizations throughout Mexico, mainly versed in web
+      technologies and the creation of hybrid applications for Android and iOS
+      systems.`,
     },
-    description: `A starter blog `,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `Portafolio web`,
+    siteUrl: `https://www.eduglezzvl94.com`,
     social: {
       twitter: `eduglezzvl`,
     },
@@ -36,7 +40,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`IBM Plex Serif\:300,400,700`],
+        fonts: [`IBM Plex Serif\:300,400,700`, `Press Start 2P\:300,400,700`],
         display: "swap",
       },
     },

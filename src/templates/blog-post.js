@@ -1,11 +1,33 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../components/OnPagesLayout"
 import Seo from "../components/seo"
+import { makeStyles } from "@material-ui/core/styles"
+import Paper from "@mui/material/Paper"
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+  imgContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  img: {
+    objectFit: "contain",
+    borderRadius: "10%",
+  },
+  Container: {
+    width: "100%",
+    paddingLeft: "10%",
+    paddingRight: "10%",
+  },
+  PostArea: {
+    padding: "8px",
+    borderRadius: "30%",
+  },
+}))
 
 const BlogPostTemplate = ({ data, location }) => {
+  const styles = useStyles()
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -17,22 +39,32 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="blog-post"
+        className={styles.Container}
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
+        <Paper className={styles.PostArea} elevation={12}>
+          <header>
+            <div className={styles.imgContainer}>
+              {post.frontmatter.thumbnail && (
+                <img
+                  src={post.frontmatter.thumbnail}
+                  width={"100%"}
+                  height={280}
+                  alt=""
+                  className={styles.img}
+                />
+              )}
+            </div>
+            <h1 itemProp="headline">{post.frontmatter.title}</h1>
+            <p>{post.frontmatter.date}</p>
+          </header>
+          <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />
+          <hr />
+        </Paper>
       </article>
       <nav className="blog-post-nav">
         <ul
@@ -85,6 +117,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

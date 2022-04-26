@@ -3,6 +3,8 @@ layout: blog
 title: "Test 3 "
 color: "#1D2B33"
 date: 2022-04-04T19:25:36.648Z
+Url: "https://www.google.com"
+Resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
 thumbnail: https://binus.ac.id/knowledge/wp-content/uploads/2019/12/1MMZW_gj10FYM_5LjllbYUQ.png
 ---
 
