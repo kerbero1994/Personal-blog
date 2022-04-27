@@ -11,7 +11,7 @@ const card = (
     alignItems="center"
     spacing={1}
   >
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
       <CardExp
         title={"React"}
         img={
@@ -24,7 +24,7 @@ const card = (
         }
       />
     </Grid>
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
       <CardExp
         title={"React Native"}
         years={"3 years"}
@@ -35,7 +35,7 @@ const card = (
         gradiente={"linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"}
       />
     </Grid>
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
       <CardExp
         title={"Redux"}
         color={"#764ABD"}
@@ -48,7 +48,7 @@ const card = (
         years={"3 years"}
       />
     </Grid>
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
       <CardExp
         title={"Gatsby"}
         color={"#40126F"}

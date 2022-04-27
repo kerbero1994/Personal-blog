@@ -20,6 +20,19 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
     position: "relative",
     maxWidth: "28vw",
+
+    [breakpoints.down("md")]: {
+      maxWidth: "40vw",
+      marginTop: "24px",
+    },
+    [breakpoints.down("sm")]: {
+      maxWidth: "40vw",
+      marginTop: "24px",
+    },
+    [breakpoints.down("xs")]: {
+      maxWidth: "90vw",
+      marginTop: "24px",
+    },
     marginLeft: "auto",
     overflow: "initial",
     background: "#ffffff",
@@ -76,7 +89,16 @@ export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
     useBlogTextInfoContentStyles()
   const shadowStyles = useOverShadowStyles()
   return (
-    <Grid item xs={4} sx={{ marginBottom: "16px" }} ref={ref}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={6}
+      lg={4}
+      xl={4}
+      sx={{ marginBottom: "16px" }}
+      ref={ref}
+    >
       <Card className={cx(styles.root, shadowStyles.root)}>
         <CardMedia
           className={styles.media}

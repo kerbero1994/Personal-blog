@@ -66,6 +66,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
   display: "block",
   transition: "0.5s",
   backgroundSize: "200% auto",
+  [theme.breakpoints.down("xs")]: {
+    width: "50% !important",
+    borderRadius: "35px !important",
+    bottom: "-10px !important",
+  },
 }))
 
 export const BlogsArea = React.memo(function BlogsArea({ posts }) {

@@ -24,10 +24,16 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   AppBar: {
     background: "transparent",
     color: "white",
+    [breakpoints.down("sm")]: {
+      maxWidth: "100% ! important",
+    },
   },
   ToolBar: {
     marginLeft: "20%",
     marginRight: "20%",
+    [breakpoints.down("sm")]: {
+      maxWidth: "100% ! important",
+    },
   },
   Title: {
     color: "white",

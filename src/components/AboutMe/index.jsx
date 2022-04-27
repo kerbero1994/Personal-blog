@@ -30,6 +30,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
   NameH: {
     color: "#e2ebf0",
+    [breakpoints.down("sm")]: {
+      fontSize: "24px",
+    },
   },
 }))
 
@@ -58,13 +61,48 @@ export const AboutMeArea = React.memo(function AboutMeArea({
         spacing={1}
         style={{ marginBottom: "16px" }}
       >
-        <Grid item xs={2}>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={3}
+          lg={3}
+          xl={2}
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
           <CardPersonal Profile={Profile} />
         </Grid>
-        <Grid item xs={5}>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={9}
+          lg={9}
+          xl={5}
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
           <Personal />
         </Grid>
-        <Grid item xs={5}>
+        <Grid
+          item
+          xs={0}
+          sm={0}
+          md={3}
+          lg={3}
+          xl={0}
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ display: { xl: "none" } }}
+        ></Grid>
+        <Grid item xs={12} sm={12} md={9} lg={9} xl={5}>
           <LastAdventure />
         </Grid>
       </Grid>
@@ -72,26 +110,30 @@ export const AboutMeArea = React.memo(function AboutMeArea({
         container
         xs={12}
         direction="row"
-        justifyContent="start"
+        justifyContent="center"
         alignItems="center"
         spacing={1}
       >
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={12} md={9} lg={9} xl={6}>
           <CardExperience />
         </Grid>
         <Grid
           item
-          xs={6}
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          xl={6}
           container
           direction="row"
           justifyContent="center"
           alignItems="center"
           spacing={1}
         >
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <WorkInProgress />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <BonusInfo resources={resources} />
           </Grid>
         </Grid>

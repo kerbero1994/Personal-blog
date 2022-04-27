@@ -68,7 +68,16 @@ export const BlogCardDemo = React.forwardRef(function BlogCard({ info }, ref) {
   })
   const mediaStyles = useFourThreeCardMediaStyles()
   return (
-    <Grid item xs={2} sx={{ padding: "16px" }} ref={ref}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={6}
+      lg={3}
+      xl={3}
+      sx={{ padding: "16px" }}
+      ref={ref}
+    >
       <Tooltip title={resource.frontmatter.title} placement="bottom">
         <CardActionArea className={classes.actionArea}>
           <Card className={classes.card}>

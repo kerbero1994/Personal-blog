@@ -64,13 +64,14 @@ const card = (
 
 export default function OutlinedCard() {
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 275, width: "100%" }}>
       <Card
         style={{
           backgroundImage:
             "linear-gradient(180deg, rgba(102,0,255,1) 8%, rgba(0,17,34,1) 44%)",
           height: "100%",
           borderRadius: "16px",
+          width: "100%",
         }}
         variant="outlined"
       >

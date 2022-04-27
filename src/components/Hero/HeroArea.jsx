@@ -13,6 +13,10 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     backgroundPosition: "center",
     borderRadius: "0 0 60% 60%/0 0 15% 15%",
     content: "",
+    [breakpoints.down("sm")]: {
+      height: "90vh",
+      borderRadius: "100% 0% 100% 0% / 26% 100% 0% 74% ",
+    },
   },
   PrincipalText: {
     color: "white",
@@ -54,6 +58,18 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     display: "block",
     transition: "1s  !important",
     backgroundSize: "200% auto",
+    [breakpoints.down("lg")]: {
+      width: "45%",
+      borderRadius: "25px !important",
+    },
+    [breakpoints.down("md")]: {
+      width: "65%",
+      borderRadius: "25px !important",
+    },
+    [breakpoints.down("sm")]: {
+      width: "100%",
+      borderRadius: "25px !important",
+    },
   },
 }))
 
@@ -73,7 +89,8 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
       <NavBar Logo={Logo} />
       <Grid
         item
-        xs={4}
+        xs={8}
+        sm={4}
         justifyContent="center"
         alignItems="center"
         container

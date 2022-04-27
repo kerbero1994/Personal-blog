@@ -22,7 +22,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
   PostArea: {
     padding: "8px",
-    borderRadius: "30%",
   },
 }))
 
