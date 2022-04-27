@@ -38,7 +38,7 @@ const BlogIndex = ({ data, location }) => {
       >
         {Demos.map(demo => {
           return (
-            <Grid item xs={2}>
+            <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
               <CardResource info={demo} />
             </Grid>
           )

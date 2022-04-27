@@ -145,8 +145,14 @@ export default function HideAppBar(props) {
                   }}
                 >
                   {pages.map(page => (
-                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page.name}</Typography>
+                    <MenuItem key={page.name}>
+                      <Button
+                        key={page.name}
+                        onClick={handleCloseNavMenu}
+                        href={`#${page.name}`}
+                      >
+                        {page.name}
+                      </Button>
                     </MenuItem>
                   ))}
                 </Menu>

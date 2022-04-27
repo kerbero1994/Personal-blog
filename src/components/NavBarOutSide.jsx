@@ -188,11 +188,13 @@ export default function HideAppBar(props) {
                   component="div"
                   sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                 >
-                  <img
-                    src={props.Logo}
-                    alt="Logo"
-                    className={styles.Logo}
-                  ></img>{" "}
+                  <Link to={"/"} className={styles.MenuElement}>
+                    <img
+                      src={data.Logo.publicURL}
+                      alt="Logo1"
+                      className={styles.Logo}
+                    ></img>{" "}
+                  </Link>
                 </Typography>
                 <Box
                   sx={{
