@@ -18,7 +18,7 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch"
 import EmailIcon from "@mui/icons-material/Email"
 import WorkIcon from "@mui/icons-material/Work"
 import Tooltip from "@mui/material/Tooltip"
-import "@fontsource/ibm-plex-serif"
+import { StaticImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   AppBar: {
@@ -107,11 +107,14 @@ export default function HideAppBar(props) {
                 sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
                 className={styles.Title}
               >
-                <img
-                  src={props.Logo}
-                  alt="Logo"
-                  style={{ maxWidth: "100%", maxHeight: "65px" }}
-                ></img>{" "}
+                <StaticImage
+                  src="../images/Logo1.png"
+                  alt="ProfilePic"
+                  width={50}
+                  height={50}
+                  placeholder="blurred"
+                  quality={40}
+                />
               </Typography>
 
               <Box

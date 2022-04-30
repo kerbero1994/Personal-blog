@@ -11,7 +11,7 @@ const card = (
   <React.Fragment>
     <CardContent>
       <Typography
-        sx={{ fontSize: 24, fontWeight: 700 }}
+        style={{ fontSize: 24, fontWeight: 700 }}
         gutterBottom
         color="white"
         align="center"

@@ -7,8 +7,6 @@ import Color from "color"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   LogoIcon: {
-    width: 45,
-    height: 45,
     transition: "0.2s",
     "&:hover": {
       transform: "scale(1.1)",
@@ -108,7 +106,7 @@ export default function OutlinedCard() {
   const styles = useStyles()
   return (
     <Card
-      sx={{
+      style={{
         background: "rgb(102,0,255)",
         backgroundImage:
           "radial-gradient(circle, rgba(102,0,255,1) 8%, rgba(0,17,34,1) 94%)",
@@ -140,6 +138,8 @@ export default function OutlinedCard() {
                   <img
                     src={Logo.Icon}
                     alt={Logo.alt}
+                    width={45}
+                    height={45}
                     className={styles.LogoIcon}
                   />
                 </a>

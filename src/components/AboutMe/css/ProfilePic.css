@@ -1,0 +1,9 @@
+.Picture {
+  border-radius: 100%;
+}
+@media (max-width: 600px) {
+  .Picture {
+    width: 220px;
+    height: 220px;
+  }
+}
