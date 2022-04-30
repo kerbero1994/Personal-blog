@@ -2,9 +2,6 @@ import * as React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   img: {
-    width: "250px",
-    height: "250px",
-    borderRadius: "100%",
     [breakpoints.down("lg")]: {
       width: "220px",
       height: "220px",
@@ -19,5 +16,12 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 export default function OutlinedCard({ Profile }) {
   const profileurl = Profile.srcWebp
   const styles = useStyles()
-  return <img src={profileurl} alt="ProfilePic" className={styles.img} />
+  return (
+    <img
+      src={profileurl}
+      alt="ProfilePic"
+      className={styles.img}
+      style={{ width: "250px", height: "250px", borderRadius: "100%" }}
+    />
+  )
 }

@@ -107,7 +107,11 @@ export default function HideAppBar(props) {
                 sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
                 className={styles.Title}
               >
-                <img src={props.Logo} alt="Logo" className={styles.Logo}></img>{" "}
+                <img
+                  src={props.Logo}
+                  alt="Logo"
+                  style={{ maxWidth: "100%", maxHeight: "65px" }}
+                ></img>{" "}
               </Typography>
 
               <Box
@@ -163,7 +167,11 @@ export default function HideAppBar(props) {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
               >
-                <img src={props.Logo} alt="Logo" className={styles.Logo}></img>{" "}
+                <img
+                  src={props.Logo}
+                  alt="Logo"
+                  style={{ maxWidth: "100%", maxHeight: "65px" }}
+                ></img>{" "}
               </Typography>
               <Box
                 sx={{
