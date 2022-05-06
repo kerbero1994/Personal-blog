@@ -3,16 +3,15 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Grid } from "@mui/material"
 import NavBar from "../NavBar"
 import Button from "@mui/material/Button"
+import { StaticImage } from "gatsby-plugin-image"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import InstagramIcon from "@mui/icons-material/Instagram"
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import EmailIcon from "@mui/icons-material/Email"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import "./Hero.css"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
-    padding: "0",
-    margin: "0",
-    width: "100%",
-    height: "70vh",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    borderRadius: "0 0 60% 60%/0 0 15% 15%",
-    content: "",
     [breakpoints.down("sm")]: {
       height: "90vh",
       borderRadius: "100% 0% 100% 0% / 26% 100% 0% 74% ",
@@ -71,22 +70,77 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       borderRadius: "25px !important",
     },
   },
+  Icons: {
+    color: "white",
+  },
 }))
 
 export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
   const styles = useStyles()
 
+  let ListOfIcons = [
+    {
+      Element: <TwitterIcon className={styles.Icons} fontSize="large" />,
+      link: "https://twitter.com/Eduglezzvl",
+    },
+    {
+      Element: <InstagramIcon className={styles.Icons} fontSize="large" />,
+      link: "https://www.instagram.com/edu.glez.zvl/",
+    },
+    {
+      Element: <LinkedInIcon className={styles.Icons} fontSize="large" />,
+      link: "https://www.linkedin.com/in/eduglezzvl94/",
+    },
+    {
+      Element: <EmailIcon className={styles.Icons} fontSize="large" />,
+      link: "mailto:eduglezzvl@gmail.com",
+    },
+    {
+      Element: <GitHubIcon className={styles.Icons} fontSize="large" />,
+      link: "https://github.com/kerbero1994",
+    },
+    {
+      Element: <GitHubIcon className={styles.Icons} fontSize="large" />,
+      link: "https://gitlab.com/kerbero1994",
+    },
+  ]
   return (
     <Grid
-      className={styles.BGSection}
+      className={(styles.BGSection, "Background")}
       container
       direction="row"
       justifyContent="center"
       alignItems="center"
       xs={12}
-      style={{ backgroundImage: `url(${Background})` }}
     >
       <NavBar Logo={Logo} />
+      <Grid item container sm={1}>
+        <aside>
+          <nav>
+            <ul style={{ listStyle: "none" }}>
+              {ListOfIcons.map(icon => {
+                return (
+                  <li className="MenuElement">
+                    <a href={icon.link}>{icon.Element}</a>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        </aside>
+      </Grid>
+
+      <Grid item container sm={4}>
+        <StaticImage
+          src="../../images/profile-pic.png"
+          alt="ProfilePic"
+          width={450}
+          height={450}
+          placeholder="blurred"
+          quality={40}
+          className="HeroImg"
+        />
+      </Grid>
       <Grid
         item
         xs={8}
@@ -96,8 +150,8 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
         container
         direction="column"
       >
-        <h2 className={styles.title}>HELLO!</h2>
-        <h4 className={styles.Subtitle}>
+        <h2 className="HeroTitle">Hello, I'm Eduardo</h2>
+        <h4 className="SubTitle">
           Ready to meet someone in 10 min? look around and search, discover
           something new or just pass by anyway you're welcome.
         </h4>
