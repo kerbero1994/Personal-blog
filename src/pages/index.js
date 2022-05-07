@@ -8,6 +8,8 @@ import Hero from "../components/Hero/HeroArea"
 import Contact from "../components/Contact/Compose"
 import Demos from "../components/Resources/Resources"
 import AboutMe from "../components/AboutMe"
+import Skills from "../components/Skills"
+import Information from "../components/Information"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -29,14 +31,14 @@ const BlogIndex = ({ data, location }) => {
       <Seo title="All posts" />
       <Helmet>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <script
-          src="https://platform.linkedin.com/badges/js/profile.js"
-          async
-          defer
-          type="text/javascript"
-        ></script>
       </Helmet>
-      <Hero Background={data.Background.publicURL} Logo={data.Logo.publicURL} />
+      <Hero />
+      <section id="skills">
+        <Skills />
+      </section>
+      <section id="Information">
+        <Information />
+      </section>
       <section id="About me">
         <AboutMe
           Background={data.AboutMe.publicURL}

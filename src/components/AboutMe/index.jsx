@@ -7,6 +7,7 @@ import Personal from "./Personal"
 import LastAdventure from "./LastAdventure"
 import WorkInProgress from "./WorkInProgress"
 import BonusInfo from "./BonusInfo"
+import "./css/index.css"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
@@ -49,8 +50,7 @@ export const AboutMeArea = React.memo(function AboutMeArea({
       direction="row"
       justifyContent="start"
       alignItems="center"
-      className={styles.BGSection}
-      style={{ backgroundImage: `url(${Background})` }}
+      className={"PrincipalBackground"}
     >
       <Grid
         container

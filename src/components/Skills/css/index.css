@@ -20,7 +20,27 @@
   color: "#fff";
   text-decoration: "none";
 }
-
+.PrincipalTitle {
+  font-size: 72px;
+  margin: 0;
+  padding: 0;
+  background: -webkit-linear-gradient(#ffc837, #ff8008);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.TitleSkills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.SecondarySkills {
+  transition: 0.2s;
+}
+.SecondarySkills :hover {
+  transform: scale(1.1);
+  border-radius: "20%";
+}
 @media (max-width: 600px) {
   .TitleName {
     font-size: 24px;

@@ -44,3 +44,20 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Url", name: "Url", widget: "string" }
       - { label: "Resume", name: "Resume", widget: "string" }
+  - name: "skills" # Used in routes, e.g., /admin/collections/blog
+    label: "Skills" # Used in the UI
+    folder: "content/skills" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Initial Time", name: "date", widget: "datetime" }
+      - { label: "Icon", name: "Icon", widget: "image" }
+      - { label: "Url", name: "Url", widget: "string" }
+      - { label: "Resume", name: "Resume", widget: "string" }
+      - {
+          label: "MainSkill",
+          name: "MainSkill",
+          widget: "boolean",
+          default: true,
+        }
