@@ -7,14 +7,11 @@ import BlogSection from "../components/Blogs/Blog"
 import Hero from "../components/Hero/HeroArea"
 import Contact from "../components/Contact/Compose"
 import Demos from "../components/Resources/Resources"
-import AboutMe from "../components/AboutMe"
 import Skills from "../components/Skills"
-import Information from "../components/Information"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.blogs.edges
-  const resources = data.resources.edges
   const DemosInfo = data.demos.edges
 
   if (posts.length === 0) {
@@ -33,24 +30,14 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero />
-      <section id="skills">
+      <section id="Skills">
         <Skills />
-      </section>
-      <section id="Information">
-        <Information />
-      </section>
-      <section id="About me">
-        <AboutMe
-          Background={data.AboutMe.publicURL}
-          Profile={data.profilePic.childImageSharp.fluid}
-          resources={resources}
-        />
-      </section>
-      <section id="Demos">
-        <Demos resources={DemosInfo} />
       </section>
       <section id="Blog">
         <BlogSection posts={posts} />
+      </section>
+      <section id="Demos">
+        <Demos resources={DemosInfo} />
       </section>
       <section id="Contact">
         <Contact />

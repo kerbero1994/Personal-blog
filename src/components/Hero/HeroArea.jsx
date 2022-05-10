@@ -9,6 +9,8 @@ import InstagramIcon from "@mui/icons-material/Instagram"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import EmailIcon from "@mui/icons-material/Email"
 import GitHubIcon from "@mui/icons-material/GitHub"
+import Slide from "@mui/material/Slide"
+
 import "./Hero.css"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   BGSection: {
@@ -77,6 +79,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 
 export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
   const styles = useStyles()
+  const [About, setAbout] = React.useState(false)
+  const [Hello, setHello] = React.useState(true)
+  const containerRef = React.useRef(null)
 
   let ListOfIcons = [
     {
@@ -112,6 +117,7 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
       justifyContent="center"
       alignItems="center"
       xs={12}
+      ref={containerRef}
     >
       <NavBar Logo={Logo} />
       <Grid item container sm={1}>
@@ -149,20 +155,56 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
         alignItems="center"
         container
         direction="column"
+        ref={containerRef}
       >
-        <h2 className="HeroTitle">Hello, I'm Eduardo</h2>
-        <h4 className="SubTitle">
-          Ready to meet someone in 10 min? look around and search, discover
-          something new or just pass by anyway you're welcome.
-        </h4>
-        <Button
-          variant="contained"
-          size="large"
-          className={styles.CTA}
-          href={`#About me`}
-        >
-          Get Started
-        </Button>
+        {Hello && (
+          <Slide direction="up" in={Hello}>
+            <div ref={containerRef}>
+              <h2 className="HeroTitle">Hello, I'm Eduardo</h2>
+              <h4 className="SubTitle">
+                Ready to meet someone in 10 min? look around and search,
+                discover something new or just pass by anyway you're welcome.
+              </h4>
+            </div>
+          </Slide>
+        )}
+        {About && (
+          <Slide direction="up" in={About}>
+            <div ref={containerRef}>
+              <h2 className="HeroTitle">About Me</h2>
+              <h4 className="SubTitle">
+                Hello, I'm Eduardo, a front end developer looking for new
+                challenges and opportunities, I currently work as a consultant
+                and freelancer for multiple organizations throughout Mexico,
+                mainly versed in web technologies and the creation of hybrid
+                applications for Android and iOS systems.
+              </h4>
+            </div>
+          </Slide>
+        )}
+        {Hello && (
+          <Button
+            variant="contained"
+            size="large"
+            className={styles.CTA}
+            onClick={() => {
+              setHello(!Hello)
+              setAbout(!About)
+            }}
+          >
+            {Hello ? "About Me" : "Hello"}
+          </Button>
+        )}
+        {!Hello && About && (
+          <Button
+            variant="contained"
+            size="large"
+            className={styles.CTA}
+            href="#Skills"
+          >
+            My skills ?
+          </Button>
+        )}
       </Grid>
     </Grid>
   )
