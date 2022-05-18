@@ -132,7 +132,7 @@ export const SkillsArea = React.memo(function SkillsArea() {
         spacing={1}
       >
         <div className={"TitleSkills"}>
-          <h3 className={"PrincipalTitle"}>Core skills</h3>
+          <h4 className={"SkillsTitle"}>Core skills</h4>
         </div>
         {data.SkillsList?.edges &&
           data.SkillsList?.edges.length > 0 &&
@@ -150,14 +150,28 @@ export const SkillsArea = React.memo(function SkillsArea() {
         direction="row"
         justifyContent="center"
         alignItems="center"
+        className={"SkillsContainer"}
       >
-        {" "}
         <div className={"TitleSkills"}>
-          <h3 className={"PrincipalTitle"}>Secondary skills</h3>
+          <h4 className={"SkillsTitle"}>All skills</h4>
         </div>
         {LogoList.map(Logo => {
           return (
-            <Grid item sx={12}>
+            <Grid
+              sx={{
+                background: "rgba( 255, 255, 255, 0.3 )",
+                boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+                backdropFilter: "blur( 20px )",
+                borderRadius: "10px",
+                border: "1px solid rgba( 255, 255, 255, 0.18 )",
+                margin: "4px",
+                padding: "4px",
+                transition: "all 0.9s",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+              }}
+            >
               <a
                 href={Logo.url}
                 target="_blank"

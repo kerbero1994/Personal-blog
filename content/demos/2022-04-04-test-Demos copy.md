@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Test 3 "
+title: "Demo 3"
 color: "#1D2B33"
 Url: "https://www.google.com"
 Resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"

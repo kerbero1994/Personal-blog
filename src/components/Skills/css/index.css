@@ -20,8 +20,8 @@
   color: "#fff";
   text-decoration: "none";
 }
-.PrincipalTitle {
-  font-size: 72px;
+.SkillsTitle {
+  font-size: 42px;
   margin: 0;
   padding: 0;
   background: -webkit-linear-gradient(#ffc837, #ff8008);
@@ -40,6 +40,9 @@
 .SecondarySkills :hover {
   transform: scale(1.1);
   border-radius: "20%";
+}
+.SkillsContainer {
+  min-height: 100%;
 }
 @media (max-width: 600px) {
   .TitleName {
