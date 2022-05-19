@@ -120,37 +120,31 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
       ref={containerRef}
     >
       <NavBar Logo={Logo} />
-      <Grid item container sm={1}>
-        <aside>
-          <nav>
-            <ul style={{ listStyle: "none" }}>
-              {ListOfIcons.map(icon => {
-                return (
-                  <li className="MenuElement">
-                    <a href={icon.link}>{icon.Element}</a>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-        </aside>
-      </Grid>
 
-      <Grid item container sm={4}>
+      <Grid
+        item
+        container
+        sx={12}
+        sm={6}
+        md={4}
+        justifyContent="center"
+        alignItems="center"
+      >
         <StaticImage
           src="../../images/profile-pic.png"
           alt="ProfilePic"
           width={450}
           height={450}
           placeholder="blurred"
-          quality={40}
+          quality={100}
           className="HeroImg"
         />
       </Grid>
       <Grid
         item
-        xs={8}
-        sm={4}
+        sx={12}
+        sm={6}
+        md={4}
         justifyContent="center"
         alignItems="center"
         container
@@ -205,6 +199,32 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
             My skills ?
           </Button>
         )}
+      </Grid>
+      <Grid
+        item
+        container
+        xs={0}
+        sm={0}
+        md={1}
+        alignItems="center"
+        justifyContent="end"
+        sx={{
+          display: { xs: "none", sm: "none" },
+        }}
+      >
+        <aside>
+          <nav>
+            <ul style={{ listStyle: "none" }}>
+              {ListOfIcons.map(icon => {
+                return (
+                  <li className="MenuElement">
+                    <a href={icon.link}>{icon.Element}</a>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        </aside>
       </Grid>
     </Grid>
   )

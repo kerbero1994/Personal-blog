@@ -121,10 +121,15 @@ export const SkillsArea = React.memo(function SkillsArea() {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      className={"PrincipalBackground"}
+      className={"HERO55Background"}
+      sx={{
+        paddingTop: { xs: "32px", sm: "32px" },
+      }}
     >
       <Grid
-        xs={6}
+        xs={12}
+        sm={12}
+        md={6}
         container
         direction="row"
         justifyContent="center"
@@ -145,7 +150,9 @@ export const SkillsArea = React.memo(function SkillsArea() {
           })}
       </Grid>
       <Grid
-        xs={6}
+        xs={0}
+        sm={12}
+        md={6}
         container
         direction="row"
         justifyContent="center"

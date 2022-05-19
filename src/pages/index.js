@@ -30,7 +30,7 @@ const BlogIndex = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero />
-      <section id="Skills">
+      <section id="Skills" style={{ display: "block" }}>
         <Skills />
       </section>
       <section id="Blog">

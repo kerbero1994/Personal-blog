@@ -131,7 +131,7 @@ export default function HideAppBar(props) {
                   onClick={handleOpenNavMenu}
                   color="inherit"
                 >
-                  <MenuIcon />
+                  <MenuIcon sx={{ color: "white" }} />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -170,11 +170,14 @@ export default function HideAppBar(props) {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
               >
-                <img
-                  src={props.Logo}
+                <StaticImage
+                  src="../images/Logo1.png"
                   alt="Logo"
-                  style={{ maxWidth: "100%", maxHeight: "65px" }}
-                ></img>{" "}
+                  width={45}
+                  height={45}
+                  placeholder="blurred"
+                  quality={40}
+                />
               </Typography>
               <Box
                 sx={{
