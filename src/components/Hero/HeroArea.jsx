@@ -209,7 +209,7 @@ export const HeroArea = React.memo(function HeroArea({ Background, Logo }) {
         alignItems="center"
         justifyContent="end"
         sx={{
-          display: { xs: "none", sm: "none" },
+          display: { xs: "none", sm: "inline" },
         }}
       >
         <aside>
